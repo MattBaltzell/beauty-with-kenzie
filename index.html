@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,900;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alike&display=swap" rel="stylesheet">
@@ -15,23 +15,25 @@
 </head>
 <body>
   <header class="header">
+    <div class="container nav-container">
     <div class="navbar">
-      <div class="logo">
-        <a href="#"><img src="img/bwk-logo.svg" width="208" alt="Beauty With Kenzie"></a>
+        <div class="logo">
+          <a href="#"><img src="img/bwk-logo.svg" width="208" alt="Beauty With Kenzie"></a>
+        </div>
+        <nav class="navigation">
+          <p class="nav-item"><a href="#">Services</a></p>
+          <p class="nav-item"><a href="#">Gallery</a></p>
+          <p class="nav-item"><a href="#">About</a></p>
+          <p class="nav-item"><a href="#">Contact</a></p>
+          <p class="nav-item"><a href="#" class="btn">BOOK NOW!</a></p>
+        </nav>  
       </div>
-      <nav class="navigation">
-        <p class="nav-item"><a href="#">Services</a></p>
-        <p class="nav-item"><a href="#">Gallery</a></p>
-        <p class="nav-item"><a href="#">About</a></p>
-        <p class="nav-item"><a href="#">Contact</a></p>
-        <a href="#" class="btn">BOOK NOW!</a>
-      </nav>  
     </div>
     <div class="container header-container">
       <div class="header-content">
         <h1 class="heading-1 clr-primary-400">Licensed esthetician specializing in waxing, customized facials, and lash extensions.</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies purus pulvinar velit tristique neque sit diam euismod. Nisl facilisis semper duis  et. Et morbi lectus varius fermentum.</p>
-        <div class="buttons">
+        <div class="header-buttons">
           <a href="#" class="btn">Explore Services</a>
           <a href="#" class="btn-link">See Pricing</a>
         </div>
@@ -93,9 +95,9 @@
       <img src="img/kenzie-dean.png" alt="">
     </div>
     <div class="about-content">
-      <h2>About Kenzie</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut eget quam sapien ridiculus. Est luctus ornare ultricies quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>  
-      <p>Est luctus ornare ultricies quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est luctus ornare ultricies quis. Lorem ipsum dolor sit amet, cons ectetur adipiscing elit.</p>
+      <h2 class="clr-secondary-100">About Kenzie</h2>
+      <p class="clr-primary-100">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut eget quam sapien ridiculus. Est luctus ornare ultricies quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>  
+      <p class="clr-primary-100">Est luctus ornare ultricies quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est luctus ornare ultricies quis. Lorem ipsum dolor sit amet, cons ectetur adipiscing elit.</p>
     </div>
   </div>
   </section>
@@ -103,11 +105,11 @@
     <div class="container">
     <div class="contact-info">
       <h2 class="heading-2">Contact</h2>
-      <h3>Phone</h3>
+      <h3 class="clr-primary-400">Phone</h3>
       <p>555.555.5555</p>
-      <h3>Email</h3>
+      <h3 class="clr-primary-400">Email</h3>
       <p>tooliedean@email.com</p>
-      <h3Address</h3>
+      <h3 class="clr-primary-400">Address</h3>
       <p>2425 Whatever Rd.<br> 
         Millbrook, AL 36054</p>
     </div>
@@ -116,10 +118,11 @@
         <h2 class="heading-2 form-heading">Get in Touch!</h2>
         <div class="form-inputs">
           <label for="name">Name</label><input type="text" id="name" placeholder="Your name">
-          <label for="phone">Phone</label><input type="text" id="phone" placeholder="Your phone">
-          <label for="email">Email</label><input type="text" id="email"placeholder="Your email">
+          <label for="phone">Phone</label><input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          required id="phone" placeholder="Your phone">
+          <label for="email">Email</label><input type="email" id="email"placeholder="Your email">
         </div>
-        <button type="submit" class="btn btn-stretch">Submit</button>
+        <button type="submit" class="btn">Submit</button>
       </form>
     </div>
   </div>
