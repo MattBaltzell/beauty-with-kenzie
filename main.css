@@ -2,13 +2,14 @@
   --clr-primary-100: #f1eeff;
   --clr-primary-400: #8264f8;
   --clr-primary-600: #7d39c0;
-
   --clr-secondary-100: #ffeae9;
   --clr-secondary-400: #ff99ac;
-
   --clr-neutral-100: #fff;
   --clr-neutral-500: #777;
   --clr-neutral-700: #555;
+  --shadow-1: 0 3px 6px rgba(0, 0, 0, 0.1);
+  --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-3: 0 0 1rem rgba(0, 0, 0, 0.3);
 }
 
 *,
@@ -21,14 +22,16 @@
 
 html {
   font-size: 10px;
-  font-family: "Alike", serif;
+  font-family: "Lato", sans-serif;
 }
 
+/*/////////////////////////////////////////
+TYPOGRAPHY
+/////////////////////////////////////////*/
 h1,
 h2,
 h3,
 label {
-  font-family: "Lato", sans-serif;
   line-height: 1;
 }
 
@@ -40,13 +43,6 @@ h2 {
   margin-bottom: 2rem;
 }
 
-h3 {
-  color: var(--clr-secondary-400);
-  font-size: 2.1rem;
-  font-weight: 400;
-  margin-bottom: 1rem;
-}
-
 h2::after {
   content: "";
   display: block;
@@ -56,13 +52,24 @@ h2::after {
   height: 0.4rem;
 }
 
+h3 {
+  color: var(--clr-secondary-400);
+  font-size: 2.1rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
 p {
   font-size: 1.6rem;
+  font-family: "Alike", serif;
   line-height: 1.5;
   margin-bottom: 2.5rem;
   color: var(--clr-neutral-500);
 }
 
+/*/////////////////////////////////////////
+COMPONENTS
+/////////////////////////////////////////*/
 .container {
   margin: 0 auto;
   padding: 3.6rem 1.6rem;
@@ -77,7 +84,6 @@ img {
 
 .btn,
 .btn-link {
-  font-family: "Lato", sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
   padding: 1.5rem 3rem;
@@ -101,6 +107,9 @@ img {
   padding-bottom: 0;
 }
 
+/*/////////////////////////////////////////
+HEADER SECTION
+/////////////////////////////////////////*/
 .header-container {
   display: flex;
   flex-direction: column-reverse;
@@ -142,7 +151,6 @@ img {
   object-fit: cover;
   z-index: 1;
   width: calc(100% - 1.8rem);
-
   /* temporary */
   margin-top: -2.5rem;
 }
@@ -156,11 +164,16 @@ img {
   margin-bottom: 0.5rem;
 }
 
+/*/////////////////////////////////////////
+NAV BAR
+/////////////////////////////////////////*/
 .nav-container {
   position: relative;
+  z-index: 100;
 }
 .navbar {
-  position: absolute;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.9);
   top: 0;
   right: 0;
   display: flex;
@@ -168,36 +181,94 @@ img {
   justify-content: space-between;
   width: 100%;
   padding: 3rem 1.6rem;
+  height: 4rem;
+  box-shadow: var(--shadow-3);
 }
 
-.logo {
+.logo img {
   width: 17rem;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
-.navigation {
+
+.navbar .logo img {
+  padding-top: 0.3rem;
+  margin-bottom: 0;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  display: block;
+  height: 0.2rem;
+  width: 2.4rem;
+  background-color: var(--clr-secondary-400);
+  position: relative;
+  z-index: 1000;
+}
+
+.hamburger::before {
+  position: absolute;
+  bottom: 0.6rem;
+}
+
+.hamburger::after {
+  position: absolute;
+  top: 0.6rem;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 500;
   display: none;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 100vh;
+  background: rgb(255, 153, 172);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 153, 172, 1) 0%,
+    rgba(130, 100, 248, 1) 100%
+  );
+  box-shadow: var(--shadow-2);
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
   flex-basis: 60%;
-  gap: 3rem;
   align-items: center;
   justify-content: flex-end;
+  gap: 4rem;
 }
 
 .nav-item a {
-  font-family: "Lato", sans-serif;
-  font-size: 1.6rem;
-  color: var(--clr-neutral-700);
+  font-size: 1.8rem;
+  color: var(--clr-neutral-100);
   text-decoration: none;
 }
 
 .navigation .btn {
+  font-size: 1.6rem;
+
   margin-bottom: 0;
-  color: var(--clr-neutral-100);
+  color: var(--clr-primary-400);
+  background-color: var(--clr-neutral-100);
 }
 
+/*/////////////////////////////////////////
+SERVICES SECTION
+/////////////////////////////////////////*/
 .services_lashes .btn {
   margin-bottom: 0;
 }
 
+/*/////////////////////////////////////////
+GALLERY SECTION
+/////////////////////////////////////////*/
 .section-gallery {
   background-color: var(--clr-primary-100);
 }
@@ -216,6 +287,9 @@ img {
   border-radius: 0.3rem;
 }
 
+/*/////////////////////////////////////////
+ABOUT SECTION
+/////////////////////////////////////////*/
 .section-about {
   background-color: var(--clr-primary-400);
 }
@@ -248,6 +322,9 @@ img {
   width: calc(100% - 1.8rem);
 }
 
+/*/////////////////////////////////////////
+CONTACT & FOOTER SECTIONS
+/////////////////////////////////////////*/
 .section-contact,
 .footer {
   background-color: var(--clr-secondary-100);
@@ -262,7 +339,7 @@ img {
   background-color: var(--clr-neutral-100);
   min-height: 36rem;
   border-radius: 0.4rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-2);
 }
 
 .form-heading::after {
@@ -314,8 +391,9 @@ input {
   padding-bottom: 1rem;
 }
 
-/* Helpers */
-
+/*/////////////////////////////////////////
+HELPER CLASSES
+/////////////////////////////////////////*/
 .clr-primary-100 {
   color: var(--clr-primary-100);
 }
