@@ -8,28 +8,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alike&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alike&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
+  <script src="script.js" defer></script>
   <title>Beauty with Kenzie - Full-body Waxes, Customized Facials, and Lash Extensions</title>
 </head>
 <body>
-  <header class="header">
+  <header class="header scroll-0" id="logo-anchor">
     <div class="container nav-container">
     <div class="navbar">
         <div class="logo">
-          <a href="./"><img src="img/bwk-logo.svg" width="208" alt="Beauty With Kenzie"></a>
+          <a href="javascript:void(0);" class="logo-link"><img src="img/bwk-logo.svg" width="208" alt="Beauty With Kenzie">logo</a>
         </div>
-        <div class="hamburger"></div>
-        <div class="menu">
-        <nav class="navigation">
-          <span class="nav-item"><a href="#">Services</a></span>
-          <span class="nav-item"><a href="#">Gallery</a></span>
-          <span class="nav-item"><a href="#">About</a></span>
-          <span class="nav-item"><a href="#">Contact</a></span>
-          <span class="nav-item"><a href="#" class="btn">BOOK NOW!</a></span>
-        </nav> 
-      </div> 
+        <input type="checkbox" name="checkbox" id="hamburger-check" >
+        <label for="hamburger-check" class="hamburger"></label>
+        <div class="menu hidden-flex">
+          <nav class="navigation">
+            <a href="javascript:void(0);" class="nav-item">Services</a>
+            <a href="javascript:void(0);" class="nav-item">Gallery</a>
+            <a href="javascript:void(0);" class="nav-item">About</a>
+            <a href="javascript:void(0);" class="nav-item">Contact</a>
+            <a href="#" class="nav-item btn">BOOK NOW!</a>
+          </nav> 
+        </div> 
       </div>
     </div>
     <div class="container header-container">
@@ -46,7 +48,7 @@
       </div>
     </div>
   </header>
-  <section class="services-section">
+  <section class="scroll services-section" id="services-anchor">
     <div class="container">
       <h2 class="heading-2 underline">Services</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut eget quam sapien ridiculus. Est luctus ornare ultricies quis.</p>
@@ -72,7 +74,7 @@
       </div>
     </div>
   </section>
-  <section class="section-gallery">
+  <section class="scroll section-gallery" id="gallery-anchor">
     <div class="container">
       <h2 class="heading-2 underline">Gallery</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut eget quam sapien ridiculus. Est luctus ornare ultricies quis.</p>
@@ -92,7 +94,7 @@
       </div>
     </div>
   </section>
-  <section class="section-about">
+  <section class="scroll section-about" id="about-anchor">
     <div class="container">
     <div class="about-image"> 
       <img src="img/kenzie-dean.png" alt="">
@@ -104,7 +106,7 @@
     </div>
   </div>
   </section>
-  <section class="section-contact">
+  <section class="scroll section-contact" id="contact-anchor">
     <div class="container">
     <div class="contact-info">
       <h2 class="heading-2">Contact</h2>
@@ -132,7 +134,7 @@
   </section>
   <footer class= "footer">
     <div class="logo">
-      <a href="#"><img src="img/bwk-logo.svg" alt="Beauty With Kenzie"></a>
+      <a href="javascript:void(0);" class="logo-link"><img src="img/bwk-logo.svg" width="208" alt="Beauty With Kenzie">logo</a>
     </div>
   </footer>
 </body>

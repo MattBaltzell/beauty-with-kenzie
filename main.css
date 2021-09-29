@@ -23,6 +23,15 @@
 html {
   font-size: 10px;
   font-family: "Lato", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.scroll {
+  scroll-margin-top: 5.8rem;
+}
+
+.scroll-0 {
+  scroll-margin-top: 0;
 }
 
 /*/////////////////////////////////////////
@@ -90,7 +99,7 @@ img {
 }
 
 .btn {
-  display: inline-block;
+  display: block;
   color: var(--clr-neutral-100);
   background-color: var(--clr-primary-400);
   padding: 1.5rem 3rem;
@@ -185,14 +194,20 @@ NAV BAR
   box-shadow: var(--shadow-3);
 }
 
+.logo,
 .logo img {
   width: 17rem;
-  /* margin: 0 auto; */
 }
 
-.navbar .logo img {
-  padding-top: 0.3rem;
-  margin-bottom: 0;
+.logo a {
+  line-height: 0;
+  font-size: 0;
+  color: transparent;
+}
+
+.navbar .logo {
+  padding-top: 3rem;
+  margin-bottom: -0erem;
 }
 
 .hamburger,
@@ -205,6 +220,12 @@ NAV BAR
   background-color: var(--clr-secondary-400);
   position: relative;
   z-index: 1000;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.hamburger {
+  margin-top: 0.8rem;
 }
 
 .hamburger::before {
@@ -222,10 +243,10 @@ NAV BAR
   top: 0;
   right: 0;
   z-index: 500;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   height: 100vh;
   background: rgb(255, 153, 172);
   background: linear-gradient(
@@ -245,7 +266,7 @@ NAV BAR
   gap: 4rem;
 }
 
-.nav-item a {
+.nav-item {
   font-size: 1.8rem;
   color: var(--clr-neutral-100);
   text-decoration: none;
@@ -253,15 +274,48 @@ NAV BAR
 
 .navigation .btn {
   font-size: 1.6rem;
-
   margin-bottom: 0;
   color: var(--clr-primary-400);
   background-color: var(--clr-neutral-100);
 }
 
+.hidden-flex {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  left: 100vw;
+  transition: transform 0.5s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+#hamburger-check {
+  display: none;
+}
+#hamburger-check:checked ~ .hamburger {
+  background-color: transparent;
+}
+
+#hamburger-check:checked ~ .hamburger::before {
+  transform: rotate(135deg);
+  bottom: 0;
+  background-color: var(--clr-primary-100);
+}
+#hamburger-check:checked ~ .hamburger::after {
+  transform: rotate(-135deg);
+  top: 0;
+  background-color: var(--clr-primary-100);
+}
+
+#hamburger-check:checked ~ .hidden-flex {
+  visibility: visible;
+  pointer-events: visible;
+  opacity: 1;
+  transform: translateX(-100vw);
+}
+
 /*/////////////////////////////////////////
 SERVICES SECTION
 /////////////////////////////////////////*/
+
 .services_lashes .btn {
   margin-bottom: 0;
 }
