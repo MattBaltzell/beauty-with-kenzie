@@ -31,12 +31,11 @@ function jumpToSection() {
 }
 
 function modalOpen(){
-  
+  modal.classList.remove("hidden");
   const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
   const body = document.body;
   body.style.position = 'fixed';
-  body.style.top = `-${scrollY}px`;  
-  modal.classList.remove("hidden");
+  body.style.top = `-${scrollY}`; 
 }
 
 // function displayImage(){
@@ -44,15 +43,18 @@ function modalOpen(){
 // }
 
 function modalClose() {
-  modal.classList.add("hidden");
   const body = document.body;
   const scrollY = body.style.top;
   body.style.position = '';
   body.style.top = '';
   window.scrollTo(0, parseInt(scrollY || '0') * -1);
-  
+  modal.classList.add("hidden");
 }
 
 function menuClose() {
   checkBox.checked ? checkBox.click() : null;
 }
+
+window.addEventListener('scroll', () => {
+  document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+});
