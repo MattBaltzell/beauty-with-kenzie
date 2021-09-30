@@ -32,7 +32,7 @@ function jumpToSection() {
 
 function modalOpen(){
   
-  modal.classList.remove("hidden);
+  modal.classList.remove("hidden");
   const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
   const body = document.body;
   body.style.height = '100vh';
