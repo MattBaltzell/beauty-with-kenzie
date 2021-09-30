@@ -34,8 +34,8 @@ function modalOpen(){
   modal.classList.remove("hidden");
   const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
   const body = document.body;
-  body.style.height = '100vh';
-  body.style.overflowY = 'hidden';                       
+  body.style.position = 'fixed';
+  body.style.top = `-${scrollY}`;                       
 }
 
 // function displayImage(){
@@ -43,14 +43,12 @@ function modalOpen(){
 // }
 
 function modalClose() {
+  modal.classList.add("hidden");
   const body = document.body;
   const scrollY = body.style.top;
   body.style.position = '';
   body.style.top = '';
-  body.style.height = '';
-  body.style.overflowY = '';
   window.scrollTo(0, parseInt(scrollY || '0') * -1);
-  modal.classList.add("hidden");
 }
 
 function menuClose() {
