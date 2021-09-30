@@ -49,7 +49,7 @@ h1,
 h2,
 h3,
 label {
-  line-height: 1;
+  line-height: 1.1 ;
 }
 
 h1,
@@ -58,6 +58,7 @@ h2 {
   font-size: 3rem;
   font-weight: 300;
   margin-bottom: 2rem;
+  max-width: 35ch;
 }
 
 h2::after {
@@ -135,11 +136,10 @@ button,
 .header-container {
   display: flex;
   flex-direction: column-reverse;
-  /* margin-top: 4rem; */
+  padding-top:1.8rem;
 }
 
 .header {
-  /* display: flex; */
   position: relative;
   background-color: var(--clr-secondary-100);
 }
@@ -147,8 +147,7 @@ button,
 .header-image {
   position: relative;
   height: 18rem;
-  /* temporary: change back to 3 */
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .header-image::after {
@@ -162,7 +161,7 @@ button,
   border: 0.4rem solid var(--clr-primary-400);
   border-radius: 0.4rem;
   /* temporary */
-  margin-top: -2.5rem;
+  /* margin-top: -2.5rem; */
 }
 
 .header-image img {
@@ -174,7 +173,7 @@ button,
   z-index: 1;
   width: calc(100% - 1.8rem);
   /* temporary */
-  margin-top: -2.5rem;
+  /* margin-top: -2.5rem; */
 }
 
 .header-buttons {
@@ -567,7 +566,34 @@ input {
 /*////    Landscape Phones    ////*/
 @media screen and (min-width:567px) {
   .btn {
-    display: inline-block;
+    display: inline-block; 
+  }
+
+  .btn,.btn-link{
+    font-size: 1.6rem;
+  }
+
+  .container.nav-container{
+    padding-bottom:0;
+  }
+
+  .header-container{
+    flex-direction: row;
+    flex-basis: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+  }
+
+  .header-image img{
+    position:relative;
+  }
+  
+  .header-image img,
+  .header-image,
+  .header-image::after{
+    width: min(26rem,28vw);
+    height: min(26rem,28vw);
   }
 
   .header-buttons {
@@ -576,12 +602,40 @@ input {
   
   .container {
     padding: 6rem 4rem;
+
   }
+
+  .services{
+    display:flex;
+    gap: 2rem;
+  }
+
+  .services div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align:center;
+    width: 100%;
+  }
+
+  .services div p{
+    padding: 0 .5rem;
+  }
+
   .gallery {
     grid-template-areas:
       "img1 img2 img3 img4"
       "img5 img6 img7 img8"
       "img9 img10 img11 img12";
+  }
+
+  .contact-container{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-basis: 100%;
   }
   
 }
@@ -595,6 +649,9 @@ input {
   .container {
     padding: 8rem 8rem;
   }
+
+  
+
   .gallery {
     grid-template-areas:
       "img1 img2 img3 img4 img5 img6"
@@ -605,4 +662,37 @@ input {
 
 /*////    Large Desktops    ////*/
 @media screen and (min-width:1200px) {
+  h1,h2{
+    font-size:3.4rem;
+  }
+  p{
+    font-size:1.8rem;
+  }
+
+  .container {
+    padding: 8rem 24rem;
+  }
+  .header-image img,
+  .header-image,
+  .header-image::after{
+    width: min(33rem,18vw);
+    height: min(33rem,18vw);
+  }
+
+  
+}
+
+/*////    Large Desktops    ////*/
+@media screen and (min-width:1920px) {
+  h1,h2{
+    font-size:3.8rem;
+  }
+  
+
+  .container {
+    padding: 8rem 36rem;
+  }
+  
+
+  
 }
