@@ -36,8 +36,8 @@ function modalOpen(){
   const body = document.body;
   body.style.position = 'fixed';
   body.style.width = '100vw'
-  body.style.top = `${scrollY}`; 
-  document.documentElement.style.scroll-behavior= '';
+  body.style.top = `-${scrollY}`; 
+  document.documentElement.style.scrollBehavior = 'unset';
 }
 
 // function displayImage(){
@@ -52,7 +52,7 @@ function modalClose() {
   body.style.top = '';
   window.scrollTo(0, parseInt(scrollY || '0') * -1);
   modal.classList.add("hidden");
-  document.documentElement.style.scroll-behavior= 'smooth';
+  document.documentElement.style.scrollBehavior = 'smooth';
 }
 
 function menuClose() {
