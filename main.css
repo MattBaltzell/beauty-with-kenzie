@@ -95,8 +95,8 @@ img {
 
 .btn,
 .btn-link {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 500;
   padding: 1.5rem 3rem;
 }
 
@@ -274,13 +274,15 @@ NAV BAR
 }
 
 .nav-item {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
+  font-weight: 100;
   color: var(--clr-neutral-100);
   text-decoration: none;
 }
 
 .navigation .btn {
-  font-size: 1.6rem;
+  font-size: 2.2rem;
+  font-weight: 500;
   margin-bottom: 0;
   color: var(--clr-primary-400);
   background-color: var(--clr-neutral-100);
