@@ -4,10 +4,13 @@ const logoAnchor = document.querySelectorAll(".logo-link");
 const checkBox = document.querySelector("#hamburger-check");
 const modal = document.querySelector(".slideshow-modal");
 const modalX = document.querySelector("#modal-close");
+const galleryImages = document.querySelectorAll(".gallery-image")
+const galleryDisplay = document.querySelector("#slideshow-display");
 
 buildArrClickListener(menuLink, jumpToSection);
 buildArrClickListener(logoAnchor, jumpToSection);
 buildElClickListener(modalX, modalClose);
+buildElClickListener(galleryImages, modalOpen);
 
 function buildElClickListener(el, func) {
   el.addEventListener("click", func);
@@ -27,7 +30,27 @@ function jumpToSection() {
   menuClose();
 }
 
+function modalOpen(){
+  
+  modal.classList.remove("hidden);
+  const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
+  const body = document.body;
+  body.style.height = '100vh';
+  body.style.overflowY = 'hidden';                       
+}
+
+function displayImage(){
+  gallery-image
+}
+
 function modalClose() {
+  const body = document.body;
+  const scrollY = body.style.top;
+  body.style.position = '';
+  body.style.top = '';
+  body.style.height = '';
+  body.style.overflowY = '';
+  window.scrollTo(0, parseInt(scrollY || '0') * -1);
   modal.classList.add("hidden");
 }
 
