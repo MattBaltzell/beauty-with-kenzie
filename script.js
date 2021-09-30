@@ -31,7 +31,6 @@ function jumpToSection() {
 }
 
 function modalOpen(){
-  
   modal.classList.remove("hidden");
   const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
   const body = document.body;
@@ -39,9 +38,9 @@ function modalOpen(){
   body.style.overflowY = 'hidden';                       
 }
 
-function displayImage(){
-  gallery-image
-}
+// function displayImage(){
+//   gallery-image
+// }
 
 function modalClose() {
   const body = document.body;
