@@ -7,9 +7,11 @@
   --clr-neutral-100: #fff;
   --clr-neutral-500: #777;
   --clr-neutral-700: #555;
+  --clr-neutral-800: #444;
   --shadow-1: 0 3px 6px rgba(0, 0, 0, 0.1);
   --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.15);
-  --shadow-3: 0 0 1rem rgba(0, 0, 0, 0.3);
+  --shadow-3: 0 0 10px rgba(0, 0, 0, 0.3);
+  --shadow-4: 0 0 10px rgba(255, 0, 0, 1);
 }
 
 *,
@@ -96,6 +98,11 @@ img {
   font-size: 1.4rem;
   font-weight: 700;
   padding: 1.5rem 3rem;
+}
+
+button,
+.btn {
+  box-shadow: var(--shadow-1);
 }
 
 .btn {
@@ -341,6 +348,60 @@ GALLERY SECTION
   border-radius: 0.3rem;
 }
 
+/* ////////////   MODAL   //////////// */
+.slideshow-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: var(--shadow-2);
+}
+
+#modal-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: white;
+  font-size: 2rem;
+  font-weight: 100;
+}
+
+.slideshow-container {
+  background: var(--clr-neutral-800);
+  padding: 2rem 1.4rem;
+  border-radius: 0.4rem;
+  box-shadow: var(--shadow-3);
+}
+
+#slideshow-display {
+  width: min(50rem, 85vw);
+  height: min(30rem, 85vw);
+  background: white;
+  border-radius: 0.2rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 0;
+  font-size: 1.2rem;
+  color: var(--clr-primary-100);
+}
+
+.controls button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 /*/////////////////////////////////////////
 ABOUT SECTION
 /////////////////////////////////////////*/
@@ -466,4 +527,9 @@ HELPER CLASSES
 
 .clr-neutral-100 {
   color: var(--clr-neutral-100);
+}
+
+.hidden {
+  visibility: hidden;
+  pointer-events: none;
 }
