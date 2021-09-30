@@ -37,6 +37,7 @@ function modalOpen(){
   body.style.position = 'fixed';
   body.style.width = '100vw'
   body.style.top = `${scrollY}`; 
+  document.documentElement.style.scroll-behavior= '';
 }
 
 // function displayImage(){
@@ -51,6 +52,7 @@ function modalClose() {
   body.style.top = '';
   window.scrollTo(0, parseInt(scrollY || '0') * -1);
   modal.classList.add("hidden");
+  document.documentElement.style.scroll-behavior= 'smooth';
 }
 
 function menuClose() {
