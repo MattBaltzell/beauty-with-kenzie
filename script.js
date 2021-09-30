@@ -10,7 +10,7 @@ const galleryDisplay = document.querySelector("#slideshow-display");
 buildArrClickListener(menuLink, jumpToSection);
 buildArrClickListener(logoAnchor, jumpToSection);
 buildElClickListener(modalX, modalClose);
-buildElClickListener(galleryImages, modalOpen);
+buildArrClickListener(galleryImages, modalOpen);
 
 function buildElClickListener(el, func) {
   el.addEventListener("click", func);
