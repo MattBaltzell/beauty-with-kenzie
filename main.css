@@ -1,3 +1,6 @@
+/*/////////////////////////////////////////
+--------------   VARIABLES   --------------
+/////////////////////////////////////////*/
 :root {
   --clr-primary-100: #f1eeff;
   --clr-primary-400: #8264f8;
@@ -11,9 +14,12 @@
   --shadow-1: 0 3px 6px rgba(0, 0, 0, 0.1);
   --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.15);
   --shadow-3: 0 0 10px rgba(0, 0, 0, 0.3);
-  --shadow-4: 0 0 10px rgba(255, 0, 0, 1);
 }
 
+
+/*/////////////////////////////////////////
+-----------   RESET & GENERAL   -----------
+/////////////////////////////////////////*/
 *,
 *::before,
 *::after {
@@ -37,7 +43,7 @@ html {
 }
 
 /*/////////////////////////////////////////
-TYPOGRAPHY
+-------------   TYPOGRAPHY   -------------
 /////////////////////////////////////////*/
 h1,
 h2,
@@ -79,7 +85,7 @@ p {
 }
 
 /*/////////////////////////////////////////
-COMPONENTS
+-------------   COMPONENTS   -------------
 /////////////////////////////////////////*/
 .container {
   margin: 0 auto;
@@ -124,7 +130,7 @@ button,
 }
 
 /*/////////////////////////////////////////
-HEADER SECTION
+-----------   HEADER SECTION   -----------
 /////////////////////////////////////////*/
 .header-container {
   display: flex;
@@ -181,7 +187,7 @@ HEADER SECTION
 }
 
 /*/////////////////////////////////////////
-NAV BAR
+---------------   NAV BAR   ---------------
 /////////////////////////////////////////*/
 .nav-container {
   position: relative;
@@ -322,7 +328,7 @@ NAV BAR
 }
 
 /*/////////////////////////////////////////
-SERVICES SECTION
+----------   SERVICES SECTION   ----------
 /////////////////////////////////////////*/
 
 .services_lashes .btn {
@@ -330,7 +336,7 @@ SERVICES SECTION
 }
 
 /*/////////////////////////////////////////
-GALLERY SECTION
+-----------   GALLERY SECTION   -----------
 /////////////////////////////////////////*/
 .section-gallery {
   background-color: var(--clr-primary-100);
@@ -422,7 +428,7 @@ GALLERY SECTION
 }
 
 /*/////////////////////////////////////////
-ABOUT SECTION
+------------   ABOUT SECTION   ------------
 /////////////////////////////////////////*/
 .section-about {
   background-color: var(--clr-primary-400);
@@ -457,7 +463,7 @@ ABOUT SECTION
 }
 
 /*/////////////////////////////////////////
-CONTACT & FOOTER SECTIONS
+------   CONTACT & FOOTER SECTIONS   ------
 /////////////////////////////////////////*/
 .section-contact,
 .footer {
@@ -526,7 +532,7 @@ input {
 }
 
 /*/////////////////////////////////////////
-HELPER CLASSES
+-----------   HELPER CLASSES   -----------
 /////////////////////////////////////////*/
 .clr-primary-100 {
   color: var(--clr-primary-100);
@@ -551,4 +557,52 @@ HELPER CLASSES
 .hidden {
   visibility: hidden;
   pointer-events: none;
+}
+
+
+/*/////////////////////////////////////////
+------------   MEDIA QUERIES   ------------
+/////////////////////////////////////////*/
+
+/*////    Landscape Phones    ////*/
+@media screen and (min-width:567px) {
+  .btn {
+    display: inline-block;
+  }
+
+  .header-buttons {
+    display: inline-block;
+  }
+  
+  .container {
+    padding: 6rem 4rem;
+  }
+  .gallery {
+    grid-template-areas:
+      "img1 img2 img3 img4"
+      "img5 img6 img7 img8"
+      "img9 img10 img11 img12";
+  }
+  
+}
+
+/*////    Tablets    ////*/
+@media screen and (min-width:768px) {
+}
+
+/*////    Desktops    ////*/
+@media screen and (min-width:992px) {
+  .container {
+    padding: 8rem 8rem;
+  }
+  .gallery {
+    grid-template-areas:
+      "img1 img2 img3 img4 img5 img6"
+      "img7 img8 img9 img10 img11 img12";
+  }
+ 
+}
+
+/*////    Large Desktops    ////*/
+@media screen and (min-width:1200px) {
 }
