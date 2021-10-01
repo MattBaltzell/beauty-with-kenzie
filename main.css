@@ -54,7 +54,7 @@ label {
 h1,
 h2 {
   color: var(--clr-primary-400);
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-weight: 300;
   margin-bottom: 2rem;
   max-width: 35ch;
@@ -473,6 +473,20 @@ button,
   background-color: var(--clr-secondary-100);
 }
 
+.contact-info{
+  text-align:center;
+  padding-bottom: 2rem;
+}
+
+.contact-info .heading-2::after{
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+.contact-form{
+  width: min(100%,68.5rem);
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -660,23 +674,38 @@ input {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 4rem;
     flex-basis: 100%;
   }
+
+  .contact-info{
+    text-align:left;
+    padding-bottom: unset;
+  }
+  
+  .contact-info .heading-2::after{
+    margin-left: unset;
+    margin-right: unset; 
+  }
+
 }
 
 /*////    Tablets    ////*/
 @media screen and (min-width: 768px) {
+
   #slideshow-display {
     width: min(60rem, 60vw);
     height: min(40rem, 40vw);
+  }
+  .contact-container {
+    gap: 6rem;
   }
 }
 
 /*////    Desktops    ////*/
 @media screen and (min-width: 992px) {
   .container {
-    padding: 8rem 8rem;
+    padding: 8rem min(calc(50vw - 20rem),8rem);
   }
 
   .gallery {
@@ -691,20 +720,23 @@ input {
     width: min(48rem, 24vw);
     height: min(37rem, 18vw);
   }
+  .contact-container {
+    gap: 10rem;
+  }
 }
 
 /*////    Large Desktops    ////*/
 @media screen and (min-width: 1200px) {
   h1,
   h2 {
-    font-size: 3.4rem;
+    font-size: 3.8rem;
   }
   p {
     font-size: 1.8rem;
   }
 
   .container {
-    padding: 8rem 24rem;
+    padding: 8rem min(calc(50vw - 50rem),40rem);
   }
 
   .header-image img,
@@ -720,15 +752,18 @@ input {
   }
 }
 
-/*////    Large Desktops    ////*/
-@media screen and (min-width: 1920px) {
-  h1,
+/*////    Extra Large Desktops    ////*/
+@media screen and (min-width: 1921px) {
+  html{
+    font-size: 12px;
+  }
+  /* h1,
   h2 {
     font-size: 3.8rem;
-  }
+  } */
 
   .container {
-    padding: 8rem 36rem;
+    padding: 8rem calc(50vw - 60rem);
   }
 }
 
