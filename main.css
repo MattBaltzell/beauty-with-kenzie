@@ -82,6 +82,7 @@ p {
   line-height: 1.5;
   margin-bottom: 2.5rem;
   color: var(--clr-neutral-500);
+  max-width: 65ch;
 }
 
 /*/////////////////////////////////////////
@@ -384,7 +385,7 @@ button,
   top: 1.6rem;
   right: 2rem;
   color: white;
-  font-size: 2rem;
+  font-size: 2.6rem;
   font-weight: 100;
   cursor: pointer;
 }
@@ -591,6 +592,25 @@ input {
     font-size: 1.6rem;
   }
 
+  
+
+  .section-toptext{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+  }
+
+  .section-toptext h2::after{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-toptext p{
+    max-width: 50ch;
+  }
+
   .container.nav-container {
     padding-bottom: 0;
   }
@@ -645,7 +665,10 @@ input {
 
   .services div p {
     padding: 0 0.5rem;
+    
   }
+
+  
 
   .gallery {
     grid-template-areas:
