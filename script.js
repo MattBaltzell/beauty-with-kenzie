@@ -52,6 +52,7 @@ function modalOpen() {
     if (imgArr[i] === source) {
       galleryViewport.style.backgroundImage = `url('${imgArr[i]}')`;
       imgNumber.textContent = `${i + 1} / ${imgArr.length}`;
+      console.log(curImage = i+1);
     }
   }
 
