@@ -17,7 +17,7 @@ buildArrClickListener(menuLink, jumpToSection);
 buildArrClickListener(logoAnchor, jumpToSection);
 buildElClickListener(modalX, modalClose);
 buildArrClickListener(galleryImages, modalOpen);
-buildElClickListener(nextBtn, nextImage);
+// buildElClickListener(nextBtn, nextImage);
 buildElClickListener(prevBtn, prevImage);
 
 function buildElClickListener(el, func) {
