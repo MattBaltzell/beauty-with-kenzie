@@ -21,8 +21,9 @@ buildElClickListener(nextBtn, nextImage);
 buildElClickListener(prevBtn, prevImage);
 
 function buildElClickListener(el, func) {
-  el.addEventListener("click", func);
   el.addEventListener("touchstart", func);
+el.addEventListener("click", func);
+ 
 }
 
 function buildArrClickListener(arr, func) {
