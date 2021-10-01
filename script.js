@@ -18,7 +18,7 @@ buildArrClickListener(logoAnchor, jumpToSection);
 buildElClickListener(modalX, modalClose);
 buildArrClickListener(galleryImages, modalOpen);
 // buildElClickListener(nextBtn, nextImage);
-buildElClickListener(prevBtn, prevImage);
+// buildElClickListener(prevBtn, prevImage);
 
 function buildElClickListener(el, func) {
   el.addEventListener("click", func);
@@ -64,44 +64,61 @@ function modalOpen() {
   document.documentElement.style.scrollBehavior = "unset";
 }
 
+
 function nextImage() {
-  curSource = galleryViewport.style.backgroundImage;
-
-  if (curSource == `url("${imgArr[imgArr.length - 1]}")`) {
-    galleryViewport.style.backgroundImage = `url("${imgArr[0]}")`;
-    imgNumber.textContent = `${1} / ${imgArr.length}`;
-    return;
-  } else if (curSource == `url('${imgArr[imgArr.length - 1]}')`) {
-    galleryViewport.style.backgroundImage = `url('${imgArr[0]}')`;
-    imgNumber.textContent = `${1} / ${imgArr.length}`;
-    return;
-  }
-
-  for (i = 0; i < imgArr.length; i++) {
-    if (`url("${imgArr[i]}")` == curSource) {
-      galleryViewport.style.backgroundImage = `url("${imgArr[i + 1]}")`;
-      imgNumber.textContent = `${i + 2} / ${imgArr.length}`;
-    }else if (`url('${imgArr[i]}')` == curSource) {
-      galleryViewport.style.backgroundImage = `url('${imgArr[i + 1]}')`;
-      imgNumber.textContent = `${i + 2} / ${imgArr.length}`;
-    }
-  }
+  curImage == 12 ? curImage = 1 : curImage++;
+  imgNumber.textContent = `${curImage} / 12`;
+console.log(curImage); /////////////////////////////////////////////////////
+  let imgSrc = imgArr[curImage - 1]
+  galleryViewport.style.backgroundImage = `url("${imgSrc}")`;
 }
 
 function prevImage() {
-  curSource = galleryViewport.style.backgroundImage;
-  if (curSource === `url("${imgArr[0]}")`) {
-    galleryViewport.style.backgroundImage = `url("${imgArr[11]}")`;
-    imgNumber.textContent = `${imgArr.length} / ${imgArr.length}`;
-    return;
-  }
-  for (i = imgArr.length; i > 0; i--) {
-    if (`url("${imgArr[i]}")` === curSource) {
-      galleryViewport.style.backgroundImage = `url("${imgArr[i - 1]}")`;
-      imgNumber.textContent = `${i} / ${imgArr.length}`;
-    }
-  }
+  curImage == 1 ? curImage = 12 : curImage--;
+  imgNumber.textContent = `${curImage} / 12`;
+console.log(curImage); /////////////////////////////////////////////////////
+  let imgSrc = imgArr[curImage - 1]
+  galleryViewport.style.backgroundImage = `url("${imgSrc}")`;
 }
+
+// function nextImage() {
+//   curSource = galleryViewport.style.backgroundImage;
+
+//   if (curSource == `url("${imgArr[imgArr.length - 1]}")`) {
+//     galleryViewport.style.backgroundImage = `url("${imgArr[0]}")`;
+//     imgNumber.textContent = `${1} / ${imgArr.length}`;
+//     return;
+//   } else if (curSource == `url('${imgArr[imgArr.length - 1]}')`) {
+//     galleryViewport.style.backgroundImage = `url('${imgArr[0]}')`;
+//     imgNumber.textContent = `${1} / ${imgArr.length}`;
+//     return;
+//   }
+
+//   for (i = 0; i < imgArr.length; i++) {
+//     if (`url("${imgArr[i]}")` == curSource) {
+//       galleryViewport.style.backgroundImage = `url("${imgArr[i + 1]}")`;
+//       imgNumber.textContent = `${i + 2} / ${imgArr.length}`;
+//     }else if (`url('${imgArr[i]}')` == curSource) {
+//       galleryViewport.style.backgroundImage = `url('${imgArr[i + 1]}')`;
+//       imgNumber.textContent = `${i + 2} / ${imgArr.length}`;
+//     }
+//   }
+// }
+
+// function prevImage() {
+//   curSource = galleryViewport.style.backgroundImage;
+//   if (curSource === `url("${imgArr[0]}")`) {
+//     galleryViewport.style.backgroundImage = `url("${imgArr[11]}")`;
+//     imgNumber.textContent = `${imgArr.length} / ${imgArr.length}`;
+//     return;
+//   }
+//   for (i = imgArr.length; i > 0; i--) {
+//     if (`url("${imgArr[i]}")` === curSource) {
+//       galleryViewport.style.backgroundImage = `url("${imgArr[i - 1]}")`;
+//       imgNumber.textContent = `${i} / ${imgArr.length}`;
+//     }
+//   }
+// }
 
 function modalClose() {
   const body = document.body;
