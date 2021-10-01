@@ -1,3 +1,6 @@
+/*/////////////////////////////////////////
+--------------   VARIABLES   --------------
+/////////////////////////////////////////*/
 :root {
   --clr-primary-100: #f1eeff;
   --clr-primary-400: #8264f8;
@@ -11,9 +14,11 @@
   --shadow-1: 0 3px 6px rgba(0, 0, 0, 0.1);
   --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.15);
   --shadow-3: 0 0 10px rgba(0, 0, 0, 0.3);
-  --shadow-4: 0 0 10px rgba(255, 0, 0, 1);
 }
 
+/*/////////////////////////////////////////
+-----------   RESET & GENERAL   -----------
+/////////////////////////////////////////*/
 *,
 *::before,
 *::after {
@@ -37,13 +42,13 @@ html {
 }
 
 /*/////////////////////////////////////////
-TYPOGRAPHY
+-------------   TYPOGRAPHY   -------------
 /////////////////////////////////////////*/
 h1,
 h2,
 h3,
 label {
-  line-height: 1;
+  line-height: 1.1;
 }
 
 h1,
@@ -52,6 +57,7 @@ h2 {
   font-size: 3rem;
   font-weight: 300;
   margin-bottom: 2rem;
+  max-width: 35ch;
 }
 
 h2::after {
@@ -79,7 +85,7 @@ p {
 }
 
 /*/////////////////////////////////////////
-COMPONENTS
+-------------   COMPONENTS   -------------
 /////////////////////////////////////////*/
 .container {
   margin: 0 auto;
@@ -93,11 +99,13 @@ img {
   border-radius: 0.4rem;
 }
 
+button,
 .btn,
 .btn-link {
   font-size: 1.8rem;
   font-weight: 500;
   padding: 1.5rem 3rem;
+  cursor: pointer;
 }
 
 button,
@@ -124,16 +132,15 @@ button,
 }
 
 /*/////////////////////////////////////////
-HEADER SECTION
+-----------   HEADER SECTION   -----------
 /////////////////////////////////////////*/
 .header-container {
   display: flex;
   flex-direction: column-reverse;
-  /* margin-top: 4rem; */
+  padding-top: 1.8rem;
 }
 
 .header {
-  /* display: flex; */
   position: relative;
   background-color: var(--clr-secondary-100);
 }
@@ -141,8 +148,7 @@ HEADER SECTION
 .header-image {
   position: relative;
   height: 18rem;
-  /* temporary: change back to 3 */
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .header-image::after {
@@ -156,7 +162,7 @@ HEADER SECTION
   border: 0.4rem solid var(--clr-primary-400);
   border-radius: 0.4rem;
   /* temporary */
-  margin-top: -2.5rem;
+  /* margin-top: -2.5rem; */
 }
 
 .header-image img {
@@ -168,7 +174,7 @@ HEADER SECTION
   z-index: 1;
   width: calc(100% - 1.8rem);
   /* temporary */
-  margin-top: -2.5rem;
+  /* margin-top: -2.5rem; */
 }
 
 .header-buttons {
@@ -181,7 +187,7 @@ HEADER SECTION
 }
 
 /*/////////////////////////////////////////
-NAV BAR
+---------------   NAV BAR   ---------------
 /////////////////////////////////////////*/
 .nav-container {
   position: relative;
@@ -322,7 +328,7 @@ NAV BAR
 }
 
 /*/////////////////////////////////////////
-SERVICES SECTION
+----------   SERVICES SECTION   ----------
 /////////////////////////////////////////*/
 
 .services_lashes .btn {
@@ -330,7 +336,7 @@ SERVICES SECTION
 }
 
 /*/////////////////////////////////////////
-GALLERY SECTION
+-----------   GALLERY SECTION   -----------
 /////////////////////////////////////////*/
 .section-gallery {
   background-color: var(--clr-primary-100);
@@ -348,6 +354,13 @@ GALLERY SECTION
 .gallery-image {
   margin: 0;
   border-radius: 0.3rem;
+  cursor: pointer;
+  box-shadow: 0 0 0 var(--clr-primary-100);
+  transition: all 0.1s;
+}
+
+.gallery-image:hover {
+  box-shadow: 0 0 0 0.6rem var(--clr-secondary-400);
 }
 
 /* ////////////   MODAL   //////////// */
@@ -357,55 +370,68 @@ GALLERY SECTION
   left: 0;
   width: 100%;
   height: 100%;
+  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 200;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.7);
   box-shadow: var(--shadow-2);
 }
 
 #modal-close {
   position: absolute;
-  top: 2rem;
+  top: 1.6rem;
   right: 2rem;
   color: white;
   font-size: 2rem;
   font-weight: 100;
+  cursor: pointer;
 }
 
 .slideshow-container {
-  background: var(--clr-neutral-800);
+  background: var(--clr-neutral-100);
   padding: 2rem 1.4rem;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   box-shadow: var(--shadow-3);
 }
 
 #slideshow-display {
-  width: min(50rem, 85vw);
-  height: min(30rem, 85vw);
-  background: white;
-  border-radius: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(45rem, 85vw);
+  height: min(25rem, 85vw);
+  background: var(--clr-primary-100);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.3rem;
 }
 
 .controls {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1.4rem 0;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem 0 0 0;
   font-size: 1.2rem;
-  color: var(--clr-primary-100);
+  color: var(--clr-secondary-400);
 }
 
 .controls button {
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.2rem;
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary-400);
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 /*/////////////////////////////////////////
-ABOUT SECTION
+------------   ABOUT SECTION   ------------
 /////////////////////////////////////////*/
 .section-about {
   background-color: var(--clr-primary-400);
@@ -413,7 +439,7 @@ ABOUT SECTION
 
 .about-image {
   position: relative;
-  height: 18rem;
+  height: min(60rem, 60vw);
   margin-bottom: 4rem;
 }
 
@@ -423,24 +449,24 @@ ABOUT SECTION
   left: 1.4rem;
   display: block;
   content: "";
-  height: 18rem;
+  height: min(60rem, 60vw);
   width: calc(100% - 1.8rem);
   border: 0.4rem solid var(--clr-secondary-100);
   border-radius: 0.4rem;
 }
 
 .about-image img {
-  position: absolute;
+  position: relative;
   top: 0rem;
   left: 0rem;
-  height: 18rem;
+  height: min(60rem, 60vw);
   object-fit: cover;
   z-index: 1;
   width: calc(100% - 1.8rem);
 }
 
 /*/////////////////////////////////////////
-CONTACT & FOOTER SECTIONS
+------   CONTACT & FOOTER SECTIONS   ------
 /////////////////////////////////////////*/
 .section-contact,
 .footer {
@@ -509,7 +535,7 @@ input {
 }
 
 /*/////////////////////////////////////////
-HELPER CLASSES
+-----------   HELPER CLASSES   -----------
 /////////////////////////////////////////*/
 .clr-primary-100 {
   color: var(--clr-primary-100);
@@ -534,4 +560,181 @@ HELPER CLASSES
 .hidden {
   visibility: hidden;
   pointer-events: none;
+}
+
+/*/////////////////////////////////////////
+------------   MEDIA QUERIES   ------------
+/////////////////////////////////////////*/
+
+/*////    Landscape Phones    ////*/
+@media screen and (min-width: 567px) {
+  .btn {
+    display: inline-block;
+  }
+
+  .btn,
+  .btn-link {
+    font-size: 1.6rem;
+  }
+
+  .container.nav-container {
+    padding-bottom: 0;
+  }
+
+  .header-container {
+    flex-direction: row;
+    flex-basis: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+  }
+
+  .header-image img {
+    position: relative;
+  }
+
+  .header-image img,
+  .header-image,
+  .header-image::after {
+    width: min(26rem, 28vw);
+    height: min(26rem, 28vw);
+  }
+
+  .about-image img,
+  .about-image,
+  .about-image::after {
+    width: min(26rem, 34vw);
+    height: min(26rem, 34vw);
+  }
+
+  .header-buttons {
+    display: inline-block;
+  }
+
+  .container {
+    padding: 6rem 4rem;
+  }
+
+  .services {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .services div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    width: 100%;
+  }
+
+  .services div p {
+    padding: 0 0.5rem;
+  }
+
+  .gallery {
+    grid-template-areas:
+      "img1 img2 img3 img4"
+      "img5 img6 img7 img8"
+      "img9 img10 img11 img12";
+  }
+
+  .section-about .container {
+    display: flex;
+  }
+
+  .about-container {
+    flex-direction: row;
+    flex-basis: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+  }
+
+  .about-image img {
+    position: relative;
+  }
+
+  .contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-basis: 100%;
+  }
+}
+
+/*////    Tablets    ////*/
+@media screen and (min-width: 768px) {
+  #slideshow-display {
+    width: min(60rem, 60vw);
+    height: min(40rem, 40vw);
+  }
+}
+
+/*////    Desktops    ////*/
+@media screen and (min-width: 992px) {
+  .container {
+    padding: 8rem 8rem;
+  }
+
+  .gallery {
+    grid-template-areas:
+      "img1 img2 img3 img4 img5 img6"
+      "img7 img8 img9 img10 img11 img12";
+  }
+
+  .about-image img,
+  .about-image,
+  .about-image::after {
+    width: min(48rem, 24vw);
+    height: min(37rem, 18vw);
+  }
+}
+
+/*////    Large Desktops    ////*/
+@media screen and (min-width: 1200px) {
+  h1,
+  h2 {
+    font-size: 3.4rem;
+  }
+  p {
+    font-size: 1.8rem;
+  }
+
+  .container {
+    padding: 8rem 24rem;
+  }
+
+  .header-image img,
+  .header-image,
+  .header-image::after {
+    width: min(33rem, 18vw);
+    height: min(33rem, 18vw);
+  }
+
+  #slideshow-display {
+    width: min(80rem, 52vw);
+    height: min(55rem, 36vw);
+  }
+}
+
+/*////    Large Desktops    ////*/
+@media screen and (min-width: 1920px) {
+  h1,
+  h2 {
+    font-size: 3.8rem;
+  }
+
+  .container {
+    padding: 8rem 36rem;
+  }
+}
+
+/*////    Super Small Phones    ////*/
+@media screen and (max-width: 290px) {
+  html {
+    font-size: 8px;
+  }
 }
