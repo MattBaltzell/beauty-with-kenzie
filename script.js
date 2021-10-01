@@ -67,15 +67,22 @@ function modalOpen() {
 function nextImage() {
   curSource = galleryViewport.style.backgroundImage;
 
-  if (curSource === `url("${imgArr[imgArr.length - 1]}")`) {
+  if (curSource == `url("${imgArr[imgArr.length - 1]}")`) {
     galleryViewport.style.backgroundImage = `url("${imgArr[0]}")`;
+    imgNumber.textContent = `${1} / ${imgArr.length}`;
+    return;
+  } else if (curSource == `url('${imgArr[imgArr.length - 1]}')`) {
+    galleryViewport.style.backgroundImage = `url('${imgArr[0]}')`;
     imgNumber.textContent = `${1} / ${imgArr.length}`;
     return;
   }
 
   for (i = 0; i < imgArr.length; i++) {
-    if (`url("${imgArr[i]}")` === curSource) {
+    if (`url("${imgArr[i]}")` == curSource) {
       galleryViewport.style.backgroundImage = `url("${imgArr[i + 1]}")`;
+      imgNumber.textContent = `${i + 2} / ${imgArr.length}`;
+    }else if (`url('${imgArr[i]}')` == curSource) {
+      galleryViewport.style.backgroundImage = `url('${imgArr[i + 1]}')`;
       imgNumber.textContent = `${i + 2} / ${imgArr.length}`;
     }
   }
