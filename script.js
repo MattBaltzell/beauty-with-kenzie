@@ -8,7 +8,7 @@ const galleryImages = document.querySelectorAll(".gallery-image");
 const galleryViewport = document.querySelector("#slideshow-display");
 const imgArr = [];
 let curSource;
-let curNumber;
+let curImage = 1;
 const nextBtn = document.querySelector("#next-btn");
 const prevBtn = document.querySelector("#prev-btn");
 const imgNumber = document.querySelector("#image-number");
@@ -17,8 +17,6 @@ buildArrClickListener(menuLink, jumpToSection);
 buildArrClickListener(logoAnchor, jumpToSection);
 buildElClickListener(modalX, modalClose);
 buildArrClickListener(galleryImages, modalOpen);
-// buildElClickListener(nextBtn, nextImage);
-// buildElClickListener(prevBtn, prevImage);
 
 function buildElClickListener(el, func) {
   el.addEventListener("click", func);
@@ -47,15 +45,14 @@ function jumpToSection() {
 function modalOpen() {
   galleryViewport.textContent = "";
   let source = this.getAttribute("src");
-
   for (i = 0; i < imgArr.length; i++) {
     if (imgArr[i] === source) {
+// can change the url below to include "-lg" to keep clickable img files smaller than displayed images
       galleryViewport.style.backgroundImage = `url('${imgArr[i]}')`;
       imgNumber.textContent = `${i + 1} / ${imgArr.length}`;
-      console.log(curImage = i+1);
+      curImage = i+1;   
     }
   }
-
   modal.classList.remove("hidden");
   const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
   const body = document.body;
@@ -64,62 +61,6 @@ function modalOpen() {
   body.style.top = `-${scrollY}`;
   document.documentElement.style.scrollBehavior = "unset";
 }
-
-
-function nextImage() {
-  curImage == 12 ? curImage = 1 : curImage++;
-  imgNumber.textContent = `${curImage} / 12`;
-console.log(curImage); /////////////////////////////////////////////////////
-  let imgSrc = imgArr[curImage - 1]
-  galleryViewport.style.backgroundImage = `url("${imgSrc}")`;
-}
-
-function prevImage() {
-  curImage == 1 ? curImage = 12 : curImage--;
-  imgNumber.textContent = `${curImage} / 12`;
-console.log(curImage); /////////////////////////////////////////////////////
-  let imgSrc = imgArr[curImage - 1]
-  galleryViewport.style.backgroundImage = `url("${imgSrc}")`;
-}
-
-// function nextImage() {
-//   curSource = galleryViewport.style.backgroundImage;
-
-//   if (curSource == `url("${imgArr[imgArr.length - 1]}")`) {
-//     galleryViewport.style.backgroundImage = `url("${imgArr[0]}")`;
-//     imgNumber.textContent = `${1} / ${imgArr.length}`;
-//     return;
-//   } else if (curSource == `url('${imgArr[imgArr.length - 1]}')`) {
-//     galleryViewport.style.backgroundImage = `url('${imgArr[0]}')`;
-//     imgNumber.textContent = `${1} / ${imgArr.length}`;
-//     return;
-//   }
-
-//   for (i = 0; i < imgArr.length; i++) {
-//     if (`url("${imgArr[i]}")` == curSource) {
-//       galleryViewport.style.backgroundImage = `url("${imgArr[i + 1]}")`;
-//       imgNumber.textContent = `${i + 2} / ${imgArr.length}`;
-//     }else if (`url('${imgArr[i]}')` == curSource) {
-//       galleryViewport.style.backgroundImage = `url('${imgArr[i + 1]}')`;
-//       imgNumber.textContent = `${i + 2} / ${imgArr.length}`;
-//     }
-//   }
-// }
-
-// function prevImage() {
-//   curSource = galleryViewport.style.backgroundImage;
-//   if (curSource === `url("${imgArr[0]}")`) {
-//     galleryViewport.style.backgroundImage = `url("${imgArr[11]}")`;
-//     imgNumber.textContent = `${imgArr.length} / ${imgArr.length}`;
-//     return;
-//   }
-//   for (i = imgArr.length; i > 0; i--) {
-//     if (`url("${imgArr[i]}")` === curSource) {
-//       galleryViewport.style.backgroundImage = `url("${imgArr[i - 1]}")`;
-//       imgNumber.textContent = `${i} / ${imgArr.length}`;
-//     }
-//   }
-// }
 
 function modalClose() {
   const body = document.body;
@@ -130,6 +71,20 @@ function modalClose() {
   window.scrollTo(0, parseInt(scrollY || "0") * -1);
   modal.classList.add("hidden");
   document.documentElement.style.scrollBehavior = "smooth";
+}
+
+function nextImage() {
+  curImage == 12 ? curImage = 1 : curImage++;
+  let imgSrc = imgArr[curImage - 1]
+  galleryViewport.style.backgroundImage = `url("${imgSrc}")`;
+  imgNumber.textContent = `${curImage} / 12`;
+}
+
+function prevImage() {
+  curImage == 1 ? curImage = 12 : curImage--;
+  let imgSrc = imgArr[curImage - 1]
+  galleryViewport.style.backgroundImage = `url("${imgSrc}")`;
+  imgNumber.textContent = `${curImage} / 12`;
 }
 
 function menuClose() {
