@@ -22,7 +22,7 @@ buildElClickListener(prevBtn, prevImage);
 
 function buildElClickListener(el, func) {
   el.addEventListener("click", func);
-  el.addEventListener("touchend", func);
+  el.addEventListener("touchstart", func);
 }
 
 function buildArrClickListener(arr, func) {
