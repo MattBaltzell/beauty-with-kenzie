@@ -36,6 +36,7 @@
       </div>
     </div>
     <div class="container header-container">
+      <img src="/img/triangles-1.svg" class="triangles" id="tri-1" alt="decorative triangles">
       <div class="header-content">
         <h1 class="heading-1 clr-primary-400">Licensed esthetician specializing in waxing, customized facials, and lash extensions.</h1>
         <p>Lorem ipsum cies purus pulvinar velit tristique dolor sit amet, neque sit consectetur adipiscing elit. Et morbi lectus varius fermentum. Ultricies purus pulvinar velit tristique neque sit diam euismod. Nisl facilisis semper duis  et. Et morbi lectus varius fermentum.</p>
@@ -49,7 +50,7 @@
       </div>
     </div>
   </header>
-  <section class="scroll services-section" id="services-anchor">
+  <section class="scroll section-services" id="services-anchor">
     <div class="container">
       <div class="section-toptext">
       <h2 class="heading-2 underline">Services</h2>
@@ -113,6 +114,7 @@
   </section>
   <section class="scroll section-about" id="about-anchor">
     <div class="container about-container">
+      <img src="/img/triangles-2.svg" class="triangles" id="tri-2" alt="decorative triangles">
     <div class="about-image"> 
       <img src="/img/kenzie-dean.png" alt="">
     </div>
@@ -125,34 +127,39 @@
   </section>
   <section class="scroll section-contact" id="contact-anchor">
     <div class="container contact-container">
-    <div class="contact-info">
-      <h2 class="heading-2">Contact</h2>
-      <h3 class="clr-primary-400">Phone</h3>
-      <p>555.555.5555</p>
-      <h3 class="clr-primary-400">Email</h3>
-      <p>tooliedean@email.com</p>
-      <h3 class="clr-primary-400">Address</h3>
-      <p>2425 Whatever Rd.<br> 
-        Millbrook, AL 36054</p>
+      <div class="contact-info">
+        <h2 class="heading-2">Contact</h2>
+        <h3 class="clr-primary-400">Phone</h3>
+        <p>555.555.5555</p>
+        <h3 class="clr-primary-400">Email</h3>
+        <p>tooliedean@email.com</p>
+        <h3 class="clr-primary-400">Address</h3>
+        <p>2425 Whatever Rd.<br> 
+          Millbrook, AL 36054</p>
+      </div>
+      <div class="contact-form">
+        <form action="" class="form" id="form-contact">
+          <h4 class="heading-2 form-heading">Get in Touch!</h4>
+          <div class="form-inputs">
+            <label for="name">Name</label><input type="text" id="name" placeholder="Your name">
+            <!-- <label for="phone">Phone</label><input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              required id="phone" placeholder="Your phone"> -->
+            <label for="email">Email</label><input type="email" id="email" placeholder="Your email">
+            <label for="message">Message</label>
+            <textarea form="form-contact" name="message" id="message" placeholder="Your message"></textarea>
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
     </div>
-    <div class="contact-form">
-      <form action="" class="form">
-        <h2 class="heading-2 form-heading">Get in Touch!</h2>
-        <div class="form-inputs">
-          <label for="name">Name</label><input type="text" id="name" placeholder="Your name">
-          <label for="phone">Phone</label><input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-          required id="phone" placeholder="Your phone">
-          <label for="email">Email</label><input type="email" id="email"placeholder="Your email">
-        </div>
-        <button type="submit" class="btn">Submit</button>
-      </form>
-    </div>
-  </div>
   </section>
+  
   <footer class= "footer">
     <div class="logo">
       <a href="javascript:void(0);" class="logo-link"><img src="/img/bwk-logo.svg" width="208" alt="Beauty With Kenzie">logo</a>
     </div>
+    <img src="/img/triangles-3.svg" class="triangles" id="tri-3" alt="decorative triangles">
   </footer>
+  
 </body>
 </html>

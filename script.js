@@ -13,8 +13,8 @@ const nextBtn = document.querySelector("#next-btn");
 const prevBtn = document.querySelector("#prev-btn");
 const imgNumber = document.querySelector("#image-number");
 
-buildArrClickListener(menuLink, jumpToSection);
 buildArrClickListener(logoAnchor, jumpToSection);
+buildArrClickListener(menuLink, jumpToSection);
 buildElClickListener(modalX, modalClose);
 buildArrClickListener(galleryImages, modalOpen);
 
@@ -26,6 +26,12 @@ function buildArrClickListener(arr, func) {
   for (i = 0; i < arr.length; i++) {
     arr[i].addEventListener("click", func);
   }
+}
+
+function jumpToSectionBIG() {
+  const sect = this.textContent.toLowerCase();
+  const target = document.getElementById(`${sect}-anchor`);
+  target.scrollIntoView(true);
 }
 
 function jumpToSection() {
@@ -47,10 +53,10 @@ function modalOpen() {
   let source = this.getAttribute("src");
   for (i = 0; i < imgArr.length; i++) {
     if (imgArr[i] === source) {
-// can change the url below to include "-lg" to keep clickable img files smaller than displayed images
+      // can change the url below to include "-lg" to keep clickable img files smaller than displayed images
       galleryViewport.style.backgroundImage = `url('${imgArr[i]}')`;
       imgNumber.textContent = `${i + 1} / ${imgArr.length}`;
-      curImage = i+1;   
+      curImage = i + 1;
     }
   }
   modal.classList.remove("hidden");
@@ -74,15 +80,15 @@ function modalClose() {
 }
 
 function nextImage() {
-  curImage == 12 ? curImage = 1 : curImage++;
-  let imgSrc = imgArr[curImage - 1]
+  curImage == 12 ? (curImage = 1) : curImage++;
+  let imgSrc = imgArr[curImage - 1];
   galleryViewport.style.backgroundImage = `url("${imgSrc}")`;
   imgNumber.textContent = `${curImage} / 12`;
 }
 
 function prevImage() {
-  curImage == 1 ? curImage = 12 : curImage--;
-  let imgSrc = imgArr[curImage - 1]
+  curImage == 1 ? (curImage = 12) : curImage--;
+  let imgSrc = imgArr[curImage - 1];
   galleryViewport.style.backgroundImage = `url("${imgSrc}")`;
   imgNumber.textContent = `${curImage} / 12`;
 }

@@ -4,7 +4,7 @@
 :root {
   --clr-primary-100: #f1eeff;
   --clr-primary-400: #8264f8;
-  --clr-primary-600: #7d39c0;
+  --clr-primary-600: #582fa5;
   --clr-secondary-100: #ffeae9;
   --clr-secondary-400: #ff99ac;
   --clr-neutral-100: #fff;
@@ -52,7 +52,8 @@ label {
 }
 
 h1,
-h2 {
+h2,
+h4 {
   color: var(--clr-primary-400);
   font-size: 3.2rem;
   font-weight: 300;
@@ -60,7 +61,8 @@ h2 {
   max-width: 35ch;
 }
 
-h2::after {
+h2::after,
+h4::after {
   content: "";
   display: block;
   background-color: var(--clr-secondary-400);
@@ -91,6 +93,16 @@ p {
 .container {
   margin: 0 auto;
   padding: 3.6rem 1.6rem;
+}
+
+section {
+  z-index: -200;
+}
+
+header,
+footer,
+.container {
+  position: relative;
 }
 
 img {
@@ -130,6 +142,80 @@ button,
   width: 100%;
   text-align: center;
   padding-bottom: 0;
+}
+
+/*/////////////////////////////////////////
+---------   DECORATIVE ELEMENTS   ---------
+/////////////////////////////////////////*/
+.triangles {
+  display: none;
+  /* z-index: -1; */
+}
+
+@media screen and (min-width: 992px) {
+  .triangles {
+    display: block;
+    position: absolute;
+    margin: 0;
+  }
+  #tri-1 {
+    bottom: 0%;
+    left: 0;
+    width: 12rem;
+    transform: translateY(75%);
+  }
+  #tri-2 {
+    top: 0%;
+    right: 0;
+    width: 14rem;
+    transform: translateY(-28%);
+  }
+  #tri-3 {
+    bottom: 0;
+    left: 0;
+    width: 16rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #tri-1 {
+    bottom: 0;
+    left: 0;
+    width: 14rem;
+    transform: translateY(70%);
+  }
+  #tri-2 {
+    top: 0;
+    right: 0;
+    width: 20rem;
+    transform: translateY(-28%);
+  }
+  #tri-3 {
+    bottom: 0;
+    left: 0;
+    width: 20rem;
+  }
+}
+@media screen and (min-width: 1360px) {
+  #tri-1 {
+    bottom: 0;
+    left: 0;
+    width: 16rem;
+    transform: translateY(-55%);
+  }
+  #tri-2 {
+    top: 0;
+    right: 0;
+    width: 22rem;
+    transform: translateY(-28%);
+  }
+  #tri-3 {
+    bottom: 0;
+    left: 0;
+    width: 22rem;
+  }
+}
+
+@media screen and (min-width: 1921px) {
 }
 
 /*/////////////////////////////////////////
@@ -435,7 +521,13 @@ button,
 ------------   ABOUT SECTION   ------------
 /////////////////////////////////////////*/
 .section-about {
-  background-color: var(--clr-primary-400);
+  background: var(--clr-primary-400);
+  background: linear-gradient(
+    90deg,
+    var(--clr-primary-400) 0%,
+    var(--clr-primary-600) 100%
+  );
+  box-shadow: var(--shadow-2);
 }
 
 .about-image {
@@ -474,18 +566,18 @@ button,
   background-color: var(--clr-secondary-100);
 }
 
-.contact-info{
-  text-align:center;
+.contact-info {
+  text-align: center;
   padding-bottom: 2rem;
 }
 
-.contact-info .heading-2::after{
+.contact-info .heading-2::after {
   margin-left: auto;
-  margin-right: auto; 
+  margin-right: auto;
 }
 
-.contact-form{
-  width: min(100%,68.5rem);
+.contact-form {
+  width: min(100%, 68.5rem);
 }
 
 .form {
@@ -526,7 +618,10 @@ label {
   color: var(--clr-primary-400);
 }
 
-.form-inputs input {
+.form-inputs input,
+.form-inputs textarea {
+  font-family: "Lato", sans-serif;
+  font-size: 1.6rem;
   width: 100%;
   padding: 1.4rem;
   margin-bottom: 2rem;
@@ -535,13 +630,28 @@ label {
   color: var(--clr-neutral-700);
 }
 
-.form-inputs input::placeholder {
+.form-inputs input::placeholder,
+.form-inputs textarea::placeholder {
   color: #ccc;
 }
 
+.form-inputs input:focus,
+.form-inputs textarea:focus {
+  outline-color: var(--clr-primary-400);
+}
+
+.form .btn:focus {
+  outline-color: var(--clr-secondary-400);
+}
+
+.form-inputs textarea,
 input {
   max-width: 100%;
-  font-size: 1.6rem;
+  min-width: 100%;
+}
+
+.form-inputs textarea {
+  min-height: 12rem;
 }
 
 .footer .logo {
@@ -592,22 +702,20 @@ input {
     font-size: 1.6rem;
   }
 
-  
-
-  .section-toptext{
-    display:flex;
+  .section-toptext {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align:center;
+    text-align: center;
   }
 
-  .section-toptext h2::after{
+  .section-toptext h2::after {
     margin-left: auto;
     margin-right: auto;
   }
 
-  .section-toptext p{
+  .section-toptext p {
     max-width: 50ch;
   }
 
@@ -665,10 +773,7 @@ input {
 
   .services div p {
     padding: 0 0.5rem;
-    
   }
-
-  
 
   .gallery {
     grid-template-areas:
@@ -701,21 +806,19 @@ input {
     flex-basis: 100%;
   }
 
-  .contact-info{
-    text-align:left;
+  .contact-info {
+    text-align: left;
     padding-bottom: unset;
   }
-  
-  .contact-info .heading-2::after{
-    margin-left: unset;
-    margin-right: unset; 
-  }
 
+  .contact-info .heading-2::after {
+    margin-left: unset;
+    margin-right: unset;
+  }
 }
 
 /*////    Tablets    ////*/
 @media screen and (min-width: 768px) {
-
   #slideshow-display {
     width: min(60rem, 60vw);
     height: min(40rem, 40vw);
@@ -727,8 +830,30 @@ input {
 
 /*////    Desktops    ////*/
 @media screen and (min-width: 992px) {
+  .header h1 {
+    margin-bottom: 4rem;
+  }
+
+  h2 {
+    margin-bottom: 3rem;
+  }
+
+  h3 {
+    margin-bottom: 2rem;
+  }
+
+  .section-services p,
+  .section-gallery p {
+    margin-bottom: 4rem;
+    line-height: 1.6;
+  }
+
+  .services img {
+    margin-bottom: 4rem;
+  }
+
   .container {
-    padding: 8rem min(calc(50vw - 20rem),8rem);
+    padding: 8rem min(calc(50vw - 20rem), 8rem);
   }
 
   .gallery {
@@ -759,7 +884,7 @@ input {
   }
 
   .container {
-    padding: 8rem min(calc(50vw - 50rem),40rem);
+    padding: 12rem min(calc(50vw - 50rem), 40rem);
   }
 
   .header-image img,
@@ -777,7 +902,7 @@ input {
 
 /*////    Extra Large Desktops    ////*/
 @media screen and (min-width: 1921px) {
-  html{
+  html {
     font-size: 12px;
   }
   /* h1,
