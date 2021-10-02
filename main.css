@@ -135,6 +135,7 @@ button,
   border-radius: 0.3rem;
   text-decoration: none;
   text-align: center;
+  transition: all 0.1s;
 }
 
 .btn-link {
@@ -142,6 +143,27 @@ button,
   width: 100%;
   text-align: center;
   padding-bottom: 0;
+}
+
+.controls button:hover,
+.btn:hover {
+  background-color: var(--clr-secondary-400);
+}
+
+.btn-link:hover {
+  color: var(--clr-secondary-400);
+}
+
+.navbar .menu nav .btn:hover {
+  background-color: var(--clr-primary-600);
+  color: var(--clr-neutral-100);
+}
+
+.controls button:hover,
+.btn:hover,
+.btn-link:hover,
+.navbar .menu nav .btn:hover {
+  transform: translateY(-0.2rem);
 }
 
 /*/////////////////////////////////////////
@@ -213,9 +235,6 @@ button,
     left: 0;
     width: 22rem;
   }
-}
-
-@media screen and (min-width: 1921px) {
 }
 
 /*/////////////////////////////////////////
@@ -297,6 +316,10 @@ button,
 .logo,
 .logo img {
   width: 17rem;
+  transition: transform 0.1s;
+}
+.logo img:hover {
+  transform: scale(1.02);
 }
 
 .logo a {
@@ -417,6 +440,11 @@ button,
 /*/////////////////////////////////////////
 ----------   SERVICES SECTION   ----------
 /////////////////////////////////////////*/
+.section-services {
+  background-image: url(/img/tri-texture.svg);
+  background-repeat: repeat;
+  background-size: 2.4rem 2.4rem;
+}
 
 .services_lashes .btn {
   margin-bottom: 0;
