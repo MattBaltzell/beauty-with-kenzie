@@ -43,9 +43,7 @@ function jumpToSection() {
 }
 
 (function collectSlideImages() {
-  for (i = 0; i < galleryImages.length; i++) {
-    imgArr.push(galleryImages[i].getAttribute("src"));
-  }
+  galleryImages.forEach((el) => imgArr.push(el.getAttribute("src")));
 })();
 
 function modalOpen() {
@@ -53,7 +51,7 @@ function modalOpen() {
   let source = this.getAttribute("src");
   for (i = 0; i < imgArr.length; i++) {
     if (imgArr[i] === source) {
-      // can change the url below to include "-lg" to keep clickable img files smaller than displayed images
+      // can change the url below to include "-lg" to keep thumbnail img files smaller than displayed images
       galleryViewport.style.backgroundImage = `url('${imgArr[i]}')`;
       imgNumber.textContent = `${i + 1} / ${imgArr.length}`;
       curImage = i + 1;
@@ -83,14 +81,14 @@ function nextImage() {
   curImage == 12 ? (curImage = 1) : curImage++;
   let imgSrc = imgArr[curImage - 1];
   galleryViewport.style.backgroundImage = `url("${imgSrc}")`;
-  imgNumber.textContent = `${curImage} / 12`;
+  imgNumber.textContent = `${curImage} / ${imgArr.length}`;
 }
 
 function prevImage() {
   curImage == 1 ? (curImage = 12) : curImage--;
   let imgSrc = imgArr[curImage - 1];
   galleryViewport.style.backgroundImage = `url("${imgSrc}")`;
-  imgNumber.textContent = `${curImage} / 12`;
+  imgNumber.textContent = `${curImage} / ${imgArr.length}`;
 }
 
 function menuClose() {
