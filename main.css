@@ -126,7 +126,8 @@ button,
   box-shadow: var(--shadow-1);
 }
 
-.btn {
+.btn,
+.btn:visited {
   display: block;
   color: var(--clr-neutral-100);
   background-color: var(--clr-primary-400);
@@ -138,6 +139,7 @@ button,
   transition: all 0.1s;
 }
 
+.btn-link,
 .btn-link {
   color: var(--clr-primary-400);
   width: 100%;
@@ -858,6 +860,10 @@ input {
 
 /*////    Desktops    ////*/
 @media screen and (min-width: 992px) {
+  .logo,
+  .logo img {
+    width: 20.8rem;
+  }
   .header h1 {
     margin-bottom: 4rem;
   }
@@ -900,13 +906,17 @@ input {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 3rem;
+    gap: 2.4rem;
   }
 
   .nav-item {
     color: var(--clr-neutral-500);
     font-size: 1.8rem;
     font-weight: 400;
+  }
+
+  .nav-item:hover {
+    color: var(--clr-secondary-400);
   }
 
   .section-services p,
