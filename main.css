@@ -147,6 +147,16 @@ button,
   padding-bottom: 0;
 }
 
+.pricing-btn-link {
+  padding: 0.75rem 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.pricing-btn-link:first-child {
+  padding: 1.5rem 1rem 0.5rem 1rem;
+}
+
 .controls button:hover,
 .btn:hover {
   background-color: var(--clr-secondary-400);
@@ -246,6 +256,10 @@ button,
   display: flex;
   flex-direction: column-reverse;
   padding-top: 1.8rem;
+}
+
+.pricing-header-container {
+  flex-direction: column;
 }
 
 .header {
