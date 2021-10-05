@@ -2,6 +2,7 @@
 --------------   VARIABLES   --------------
 /////////////////////////////////////////*/
 :root {
+  --font-primary:font-family: "Lato", sans-serif;
   --clr-primary-100: #f1eeff;
   --clr-primary-400: #8264f8;
   --clr-primary-600: #582fa5;
@@ -147,6 +148,16 @@ button,
   padding-bottom: 0;
 }
 
+.pricing-btn-link {
+  padding: 1rem 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.pricing-btn-link:first-child {
+  padding: 1.75rem 1rem 1rem 1rem;
+}
+
 .controls button:hover,
 .btn:hover {
   background-color: var(--clr-secondary-400);
@@ -166,6 +177,49 @@ button,
 .btn-link:hover,
 .navbar .menu nav .btn:hover {
   transform: translateY(-0.2rem);
+}
+
+.pricing-container{
+  padding-top: 4rem;
+  padding-bottom: 0;
+}
+.pricing-container:last-of-type{
+  padding-bottom: 4rem;
+}
+
+.pricing-grid{
+  display:flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.pricing-card{
+  background-color: var(--clr-neutral-100);
+  border-radius: .4rem;
+  border: 1px solid var(--clr-primary-400);
+  box-shadow: var(--shadow-1);
+  padding: 1.5rem 2rem;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-text{}
+
+.card-heading{
+  margin:0;
+  font-size: 2rem;
+  color:var(--clr-primary-400);
+}
+
+.card-text p.card-p{
+  margin: 0;
+}
+.card-price{
+  font-family: var(--font-primary);
+  font-weight:400;
+  color: var(--clr-secondary-400);
+  font-size: 4.4rem;
 }
 
 /*/////////////////////////////////////////
@@ -246,6 +300,10 @@ button,
   display: flex;
   flex-direction: column-reverse;
   padding-top: 1.8rem;
+}
+
+.pricing-header-container {
+  flex-direction: column;
 }
 
 .header {
