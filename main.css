@@ -143,7 +143,7 @@ button,
 }
 
 .btn-link,
-.btn-link {
+.btn-link:visited {
   color: var(--clr-primary-400);
   width: 100%;
   text-align: center;
@@ -151,13 +151,22 @@ button,
 }
 
 .pricing-btn-link {
-  padding: 1rem 1rem;
+  padding: 1rem 1.4rem;
   font-size: 2rem;
   font-weight: 400;
+  text-decoration: none;
 }
 
-.pricing-btn-link:first-child {
-  padding: 1.75rem 1rem 1rem 1rem;
+.pricing-btn-link:first-of-type {
+  padding: 1.75rem 1.4rem 1rem 1.4rem;
+}
+
+.pricing-btn-link::before{
+  content: '—  '
+}
+
+.pricing-btn-link::after{
+  content: ' —'
 }
 
 .controls button:hover,
@@ -374,8 +383,10 @@ align-items: center;
   display: flex;
   flex-direction: column-reverse;
   flex-basis: 100%;
-  gap: 6rem;
+  /* gap: 6rem; */
 }
+
+
 
 .pricing-header-image::after{
   border: 0.4rem solid var(--clr-secondary-400);
@@ -939,6 +950,7 @@ input {
   
   .pricing-header-row{
     flex-direction: row;
+    gap: 6rem;
   }
 
   .pricing-header-content{
@@ -954,6 +966,24 @@ input {
     padding-bottom: 6rem;
   }
 
+  .row{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    width:100%;
+  }
+
+  .pricing-btn-link{
+    font-size: 1.4rem;
+    padding:0;
+    width: unset;
+  }
+
+  .pricing-btn-link:first-of-type{
+    padding:0;
+  }
+
 }
 
 /*////    Tablets    ////*/
@@ -964,6 +994,9 @@ input {
   }
   .contact-container {
     gap: 6rem;
+  }
+  .pricing-heading-1{
+    max-width: 20ch;
   }
 }
 
@@ -1067,6 +1100,10 @@ input {
     padding-top: 10rem;
   }
 
+  .container.pricing-header-container{
+    padding-bottom: 4rem;
+  }
+
   .pricing-container{
     padding-top: 8rem;
     padding-bottom: 0;
@@ -1084,6 +1121,10 @@ input {
 
   .odd-card{
     transform:translateX(calc(50% + .7rem));
+  }
+  .row{
+    justify-content: center;
+    gap: 4rem;
   }
 }
 
@@ -1128,6 +1169,10 @@ input {
   
   .pricing-container:last-of-type{
     padding-bottom: 12rem;
+  }
+
+  .pricing-btn-link{
+    font-size: 1.6rem;
   }
 
 }
