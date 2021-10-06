@@ -88,6 +88,8 @@ p {
   max-width: 65ch;
 }
 
+
+
 /*/////////////////////////////////////////
 -------------   COMPONENTS   -------------
 /////////////////////////////////////////*/
@@ -150,8 +152,8 @@ button,
 
 .pricing-btn-link {
   padding: 1rem 1rem;
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 400;
 }
 
 .pricing-btn-link:first-child {
@@ -183,8 +185,16 @@ button,
   padding-top: 4rem;
   padding-bottom: 0;
 }
+
 .pricing-container:last-of-type{
   padding-bottom: 4rem;
+}
+
+.pricing-container .heading-2,
+.pricing-container .heading-2::after{
+  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pricing-grid{
@@ -302,9 +312,6 @@ button,
   padding-top: 1.8rem;
 }
 
-.pricing-header-container {
-  flex-direction: column;
-}
 
 .header {
   position: relative;
@@ -314,7 +321,7 @@ button,
 .header-image {
   position: relative;
   height: 18rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .header-image::after {
@@ -327,8 +334,6 @@ button,
   width: calc(100% - 1.8rem);
   border: 0.4rem solid var(--clr-primary-400);
   border-radius: 0.4rem;
-  /* temporary */
-  /* margin-top: -2.5rem; */
 }
 
 .header-image img {
@@ -339,8 +344,6 @@ button,
   object-fit: cover;
   z-index: 1;
   width: calc(100% - 1.8rem);
-  /* temporary */
-  /* margin-top: -2.5rem; */
 }
 
 .header-buttons {
@@ -350,6 +353,32 @@ button,
 
 .header-buttons .btn {
   margin-bottom: 0.5rem;
+}
+
+.pricing-header{
+  background-color: var(--clr-primary-100);
+}
+
+.pricing-header-content{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.pricing-header-container {
+  flex-direction: column;
+}
+
+.pricing-header-row {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-basis: 100%;
+  gap: 6rem;
+}
+
+.pricing-header-image::after{
+  border: 0.4rem solid var(--clr-secondary-400);
 }
 
 /*/////////////////////////////////////////
@@ -903,6 +932,28 @@ input {
     margin-left: unset;
     margin-right: unset;
   }
+
+  .pricing-header-container{
+    flex-direction: column;
+  }
+  
+  .pricing-header-row{
+    flex-direction: row;
+  }
+
+  .pricing-header-content{
+    align-items:unset;
+  }
+
+  .pricing-container{
+    padding-top: 6rem;
+    padding-bottom: 0;
+  }
+  
+  .pricing-container:last-of-type{
+    padding-bottom: 6rem;
+  }
+
 }
 
 /*////    Tablets    ////*/
@@ -1015,6 +1066,25 @@ input {
   .container.header-container {
     padding-top: 10rem;
   }
+
+  .pricing-container{
+    padding-top: 8rem;
+    padding-bottom: 0;
+  }
+  
+  .pricing-container:last-of-type{
+    padding-bottom: 8rem;
+  }
+
+  .pricing-grid{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    /* gap:1.4rem; */
+  }
+
+  .odd-card{
+    transform:translateX(calc(50% + .7rem));
+  }
 }
 
 /*////    Large Desktops    ////*/
@@ -1038,10 +1108,28 @@ input {
     height: min(33rem, 18vw);
   }
 
+  .pricing-header-image img,
+  .pricing-header-image,
+  .pricing-header-image::after{
+    width: min(33rem, 18vw);
+    height: min(24rem, 18vw);
+  }
+  
+
   #slideshow-display {
     width: min(80rem, 52vw);
     height: min(55rem, 36vw);
   }
+
+  .pricing-container{
+    padding-top: 12rem;
+    padding-bottom: 0;
+  }
+  
+  .pricing-container:last-of-type{
+    padding-bottom: 12rem;
+  }
+
 }
 
 /*////    Extra Large Desktops    ////*/
@@ -1056,6 +1144,16 @@ input {
 
   .container {
     padding: 8rem calc(50vw - 60rem);
+  }
+
+
+  .pricing-container{
+    padding-top: 12rem;
+    padding-bottom: 0;
+  }
+  
+  .pricing-container:last-of-type{
+    padding-bottom: 12rem;
   }
 }
 
