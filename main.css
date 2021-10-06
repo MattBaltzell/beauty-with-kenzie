@@ -144,7 +144,7 @@ button,
 
 
 
-.btn-pink, .btn:visited{
+.btn-pink, .btn-pink:visited{
   background-color: var(--clr-secondary-400);
   margin-bottom: 0;
 }
