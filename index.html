@@ -100,13 +100,13 @@
           <img src="/img/gallery-12.png" alt="" id="gal-img-12"class="gallery-image">  
       </div>
       <div class="slideshow-modal hidden">
-        <div id="modal-close">&#x2715</div>
+        <div id="modal-close" onclick="modalClose()">&#x2715</div>
         <div class="slideshow-container">
-          <div id="slideshow-display">Photo</div>
+          <div id="slideshow-display"></div>
           <div class="controls">
-            <button id="prev-btn" onclick="prevImage()">Prev</button>
+            <button id="prev-btn" onclick="changeImage(prev)">Prev</button>
             <div id="image-number">1 / 12</div>
-            <button id="next-btn" onclick="nextImage()">Next</button>
+            <button id="next-btn" onclick="changeImage(nxt)">Next</button>
           </div>
         </div>
        
