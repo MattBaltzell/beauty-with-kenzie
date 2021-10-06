@@ -13,22 +13,12 @@ const nextBtn = document.querySelector("#next-btn");
 const prevBtn = document.querySelector("#prev-btn");
 const imgNumber = document.querySelector("#image-number");
 
-function kenzieAlert() {
-  alert(
-    "You are being redirected to Schedulicity. From the provider's menu, select Mackenzie Dean to see her services."
-  );
-}
-
-buildArrClickListener(logoAnchor, jumpToSection);
-buildArrClickListener(menuLink, jumpToSection);
-buildElClickListener(modalX, modalClose);
-buildArrClickListener(galleryImages, modalOpen);
+logoAnchor ? buildArrClickListener(logoAnchor, jumpToSection) : null;
+menuLink ? buildArrClickListener(menuLink, jumpToSection) : null;
+modalX ? buildElClickListener(modalX, modalClose) : null;
+galleryImages ? buildArrClickListener(galleryImages, modalOpen): null;
 
 function buildElClickListener(el, func) {
-  el.addEventListener("click", func);
-}
-
-function buildJumpClickListener(el, func) {
   el.addEventListener("click", func);
 }
 
@@ -39,23 +29,26 @@ function buildArrClickListener(arr, func) {
 }
 
 function clearURL() {
-  window.history.replaceState({}, document.title, "/");
+  if(window.location.pathname == '/pricing/') {
+    window.history.replaceState({}, document.title, "/pricing/");
+  } else window.history.replaceState({}, document.title, "/");
 }
 
 function jumpToSectionBIG() {
   const sect = this.textContent.toLowerCase();
   const target = document.getElementById(`${sect}`);
   target.scrollIntoView(true);
-  window.history.replaceState({}, document.title, "/");
+  clearURL();
 }
 
 function jumpToSection() {
   if (this.classList.contains("btn")) return menuClose();
-  const sect = this.textContent.toLowerCase();
+  let sect = this.textContent.toLowerCase();
+  sect = sect.replace(/\s+/g, '-').toLowerCase();
   const target = document.getElementById(`${sect}`);
   target.scrollIntoView(true);
   menuClose();
-  window.history.replaceState({}, document.title, "/");
+  clearURL();
 }
 
 (function collectSlideImages() {
