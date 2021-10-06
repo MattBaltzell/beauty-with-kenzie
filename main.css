@@ -142,6 +142,18 @@ button,
   transition: all 0.1s;
 }
 
+
+
+.btn-pink, .btn:visited{
+  background-color: var(--clr-secondary-400);
+  margin-bottom: 0;
+}
+
+a.btn-pink:hover{
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-secondary-400);
+}
+
 .btn-link,
 .btn-link:visited {
   color: var(--clr-primary-400);
@@ -149,6 +161,8 @@ button,
   text-align: center;
   padding-bottom: 0;
 }
+
+
 
 .pricing-btn-link {
   padding: 1rem 1.4rem;
@@ -223,8 +237,6 @@ button,
   justify-content: space-between;
 }
 
-.card-text{}
-
 .card-heading{
   margin:0;
   font-size: 2rem;
@@ -239,6 +251,12 @@ button,
   font-weight:400;
   color: var(--clr-secondary-400);
   font-size: 4.4rem;
+}
+
+.pricing-about-content{
+  display:flex;
+  flex-direction: column;
+  /* align-items:center ; */
 }
 
 /*/////////////////////////////////////////
@@ -830,6 +848,10 @@ input {
     font-size: 1.6rem;
   }
 
+  .btn-pink{
+    align-self: flex-start;
+  }
+
   .section-toptext {
     display: flex;
     flex-direction: column;
@@ -982,6 +1004,24 @@ input {
 
   .pricing-btn-link:first-of-type{
     padding:0;
+  }
+
+  .pricing-about-content{
+    align-items: center;
+  }
+
+  .pricing-about-content h2::after{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pricing-about-content p{
+    max-width: 60ch;
+    text-align:center;
+  }
+
+  .btn-pink{
+    align-self: center;
   }
 
 }
@@ -1203,7 +1243,7 @@ input {
 }
 
 /*////    Super Small Phones    ////*/
-@media screen and (max-width: 290px) {
+@media screen and (max-width: 320px) {
   html {
     font-size: 8px;
   }
