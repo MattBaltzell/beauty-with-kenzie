@@ -795,6 +795,11 @@ input {
     align-self: flex-start;
   }
 
+  .services_waxing .btn,
+  .services_facials .btn {
+    margin-bottom: 0;
+  }
+
   .section-toptext {
     display: flex;
     flex-direction: column;
