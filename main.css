@@ -2,7 +2,8 @@
 --------------   VARIABLES   --------------
 /////////////////////////////////////////*/
 :root {
-  --font-primary:font-family: "Lato", sans-serif;
+  --font-primary: "Lato", sans-serif;
+  --font-secondary: "Alike", serif;
   --clr-primary-100: #f1eeff;
   --clr-primary-400: #8264f8;
   --clr-primary-600: #582fa5;
@@ -15,6 +16,8 @@
   --shadow-1: 0 3px 6px rgba(0, 0, 0, 0.1);
   --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.15);
   --shadow-3: 0 0 10px rgba(0, 0, 0, 0.3);
+  --shadow-4: 0 0 8px var(--clr-primary-100);
+  --shadow-5: 0 0 0 0.6rem var(--clr-secondary-400);
 }
 
 /*/////////////////////////////////////////
@@ -30,7 +33,7 @@
 
 html {
   font-size: 10px;
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-primary);
   scroll-behavior: smooth;
 }
 
@@ -81,14 +84,12 @@ h3 {
 
 p {
   font-size: 1.6rem;
-  font-family: "Alike", serif;
+  font-family: var(--font-secondary);
   line-height: 1.5;
   margin-bottom: 2.5rem;
   color: var(--clr-neutral-500);
   max-width: 65ch;
 }
-
-
 
 /*/////////////////////////////////////////
 -------------   COMPONENTS   -------------
@@ -142,14 +143,13 @@ button,
   transition: all 0.1s;
 }
 
-
-
-.btn-pink, .btn-pink:visited{
+.btn-cta,
+.btn-cta:visited {
   background-color: var(--clr-secondary-400);
   margin-bottom: 0;
 }
 
-a.btn-pink:hover{
+a.btn-cta:hover {
   background-color: var(--clr-neutral-100);
   color: var(--clr-secondary-400);
 }
@@ -162,8 +162,6 @@ a.btn-pink:hover{
   padding-bottom: 0;
 }
 
-
-
 .pricing-btn-link {
   padding: 1rem 1.4rem;
   font-size: 2rem;
@@ -175,12 +173,12 @@ a.btn-pink:hover{
   padding: 1.75rem 1.4rem 1rem 1.4rem;
 }
 
-.pricing-btn-link::before{
-  content: '—  '
+.pricing-btn-link::before {
+  content: "—  ";
 }
 
-.pricing-btn-link::after{
-  content: ' —'
+.pricing-btn-link::after {
+  content: " —";
 }
 
 .controls button:hover,
@@ -204,59 +202,58 @@ a.btn-pink:hover{
   transform: translateY(-0.2rem);
 }
 
-.pricing-container{
+.pricing-container {
   padding-top: 4rem;
   padding-bottom: 0;
 }
 
-.pricing-container:last-of-type{
+.pricing-container:last-of-type {
   padding-bottom: 4rem;
 }
 
 .pricing-container .heading-2,
-.pricing-container .heading-2::after{
-  text-align:center;
+.pricing-container .heading-2::after {
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 
-.pricing-grid{
-  display:flex;
+.pricing-grid {
+  display: flex;
   flex-direction: column;
   gap: 1.4rem;
 }
 
-.pricing-card{
+.pricing-card {
   background-color: var(--clr-neutral-100);
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   border: 1px solid var(--clr-primary-400);
   box-shadow: var(--shadow-1);
   padding: 1.5rem 2rem;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.card-heading{
-  margin:0;
+.card-heading {
+  margin: 0;
   font-size: 2rem;
-  color:var(--clr-primary-400);
+  color: var(--clr-primary-400);
 }
 
-.card-text p.card-p{
+.card-text p.card-p {
   margin: 0;
 }
-.card-price{
+.card-price {
   font-family: var(--font-primary);
-  font-weight:400;
+  font-weight: 400;
   color: var(--clr-secondary-400);
   font-size: 4.4rem;
 }
 
-.pricing-about-content{
-  display:flex;
+.cta-content {
+  display: flex;
   flex-direction: column;
-  /* align-items:center ; */
 }
 
 /*/////////////////////////////////////////
@@ -264,70 +261,6 @@ a.btn-pink:hover{
 /////////////////////////////////////////*/
 .triangles {
   display: none;
-  /* z-index: -1; */
-}
-
-@media screen and (min-width: 992px) {
-  .triangles {
-    display: block;
-    position: absolute;
-    margin: 0;
-  }
-  #tri-1 {
-    bottom: 0%;
-    left: 0;
-    width: 12rem;
-    transform: translateY(75%);
-  }
-  #tri-2 {
-    top: 0%;
-    right: 0;
-    width: 14rem;
-    transform: translateY(-28%);
-  }
-  #tri-3 {
-    bottom: 0;
-    left: 0;
-    width: 16rem;
-  }
-}
-@media screen and (min-width: 1200px) {
-  #tri-1 {
-    bottom: 0;
-    left: 0;
-    width: 14rem;
-    transform: translateY(70%);
-  }
-  #tri-2 {
-    top: 0;
-    right: 0;
-    width: 20rem;
-    transform: translateY(-28%);
-  }
-  #tri-3 {
-    bottom: 0;
-    left: 0;
-    width: 20rem;
-  }
-}
-@media screen and (min-width: 1360px) {
-  #tri-1 {
-    bottom: 0;
-    left: 0;
-    width: 16rem;
-    transform: translateY(-55%);
-  }
-  #tri-2 {
-    top: 0;
-    right: 0;
-    width: 22rem;
-    transform: translateY(-28%);
-  }
-  #tri-3 {
-    bottom: 0;
-    left: 0;
-    width: 22rem;
-  }
 }
 
 /*/////////////////////////////////////////
@@ -338,7 +271,6 @@ a.btn-pink:hover{
   flex-direction: column-reverse;
   padding-top: 1.8rem;
 }
-
 
 .header {
   position: relative;
@@ -382,15 +314,15 @@ a.btn-pink:hover{
   margin-bottom: 0.5rem;
 }
 
-.pricing-header{
+.pricing-header {
   background-color: var(--clr-primary-100);
 }
 
-.pricing-header-content{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+.pricing-header-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .pricing-header-container {
@@ -401,12 +333,9 @@ align-items: center;
   display: flex;
   flex-direction: column-reverse;
   flex-basis: 100%;
-  /* gap: 6rem; */
 }
 
-
-
-.pricing-header-image::after{
+.pricing-header-image::after {
   border: 0.4rem solid var(--clr-secondary-400);
 }
 
@@ -550,7 +479,8 @@ align-items: center;
 /*/////////////////////////////////////////
 ----------   SERVICES SECTION   ----------
 /////////////////////////////////////////*/
-.section-services {
+.section-services,
+.section-pricing {
   background-image: url(/img/tri-texture.svg);
   background-repeat: repeat;
   background-size: 2.4rem 2.4rem;
@@ -580,12 +510,12 @@ align-items: center;
   margin: 0;
   border-radius: 0.3rem;
   cursor: pointer;
-  box-shadow: 0 0 0 var(--clr-primary-100);
+  box-shadow: var(--shadow-4);
   transition: all 0.1s;
 }
 
 .gallery-image:hover {
-  box-shadow: 0 0 0 0.6rem var(--clr-secondary-400);
+  box-shadow: var(--shadow-5);
 }
 
 /* ////////////   MODAL   //////////// */
@@ -612,6 +542,18 @@ align-items: center;
   font-size: 2.6rem;
   font-weight: 100;
   cursor: pointer;
+}
+
+#modal-close::after {
+  content: "close";
+  position: absolute;
+  font-size: 0.8rem;
+  font-weight: 700;
+  top: 3.6rem;
+  right: 50%;
+  transform: translateX(50%);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .slideshow-container {
@@ -658,7 +600,8 @@ align-items: center;
 /*/////////////////////////////////////////
 ------------   ABOUT SECTION   ------------
 /////////////////////////////////////////*/
-.section-about {
+.section-about,
+.section-cta {
   background: var(--clr-primary-400);
   background: linear-gradient(
     90deg,
@@ -758,7 +701,7 @@ label {
 
 .form-inputs input,
 .form-inputs textarea {
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-primary);
   font-size: 1.6rem;
   width: 100%;
   padding: 1.4rem;
@@ -848,7 +791,7 @@ input {
     font-size: 1.6rem;
   }
 
-  .btn-pink{
+  .btn-cta {
     align-self: flex-start;
   }
 
@@ -932,11 +875,13 @@ input {
       "img9 img10 img11 img12";
   }
 
-  .section-about .container {
+  .section-about .container,
+  .section-cta .container {
     display: flex;
   }
 
-  .about-container {
+  .about-container,
+  .cta-container {
     flex-direction: row;
     flex-basis: 100%;
     justify-content: center;
@@ -966,64 +911,63 @@ input {
     margin-right: unset;
   }
 
-  .pricing-header-container{
+  .pricing-header-container {
     flex-direction: column;
   }
-  
-  .pricing-header-row{
+
+  .pricing-header-row {
     flex-direction: row;
     gap: 6rem;
   }
 
-  .pricing-header-content{
-    align-items:unset;
+  .pricing-header-content {
+    align-items: unset;
   }
 
-  .pricing-container{
+  .pricing-container {
     padding-top: 6rem;
     padding-bottom: 0;
   }
-  
-  .pricing-container:last-of-type{
+
+  .pricing-container:last-of-type {
     padding-bottom: 6rem;
   }
 
-  .row{
-    display:flex;
+  .row {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 1rem;
-    width:100%;
+    width: 100%;
   }
 
-  .pricing-btn-link{
+  .pricing-btn-link {
     font-size: 1.4rem;
-    padding:0;
+    padding: 0;
     width: unset;
   }
 
-  .pricing-btn-link:first-of-type{
-    padding:0;
+  .pricing-btn-link:first-of-type {
+    padding: 0;
   }
 
-  .pricing-about-content{
+  .cta-content {
     align-items: center;
   }
 
-  .pricing-about-content h2::after{
+  .cta-content h2::after {
     margin-left: auto;
     margin-right: auto;
   }
 
-  .pricing-about-content p{
+  .cta-content p {
     max-width: 60ch;
-    text-align:center;
+    text-align: center;
   }
 
-  .btn-pink{
+  .btn-cta {
     align-self: center;
   }
-
 }
 
 /*////    Tablets    ////*/
@@ -1035,7 +979,7 @@ input {
   .contact-container {
     gap: 6rem;
   }
-  .pricing-heading-1{
+  .pricing-heading-1 {
     max-width: 20ch;
   }
 }
@@ -1102,7 +1046,8 @@ input {
   }
 
   .section-services p,
-  .section-gallery p {
+  .section-gallery p,
+  .section-pricing p {
     margin-bottom: 4rem;
     line-height: 1.6;
   }
@@ -1140,31 +1085,53 @@ input {
     padding-top: 10rem;
   }
 
-  .container.pricing-header-container{
+  .container.pricing-header-container {
     padding-bottom: 4rem;
   }
 
-  .pricing-container{
+  .pricing-container {
     padding-top: 8rem;
     padding-bottom: 0;
   }
-  
-  .pricing-container:last-of-type{
+
+  .pricing-container:last-of-type {
     padding-bottom: 8rem;
   }
 
-  .pricing-grid{
-    display:grid;
-    grid-template-columns: repeat(2,1fr);
-    /* gap:1.4rem; */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .odd-card{
-    transform:translateX(calc(50% + .7rem));
+  .odd-card {
+    transform: translateX(calc(50% + 0.7rem));
   }
-  .row{
+  .row {
     justify-content: center;
     gap: 4rem;
+  }
+
+  .triangles {
+    display: block;
+    position: absolute;
+    margin: 0;
+  }
+  #tri-1 {
+    bottom: 0%;
+    left: 0;
+    width: 12rem;
+    transform: translateY(75%);
+  }
+  #tri-2 {
+    top: 0%;
+    right: 0;
+    width: 14rem;
+    transform: translateY(-28%);
+  }
+  #tri-3 {
+    bottom: 0;
+    left: 0;
+    width: 16rem;
   }
 }
 
@@ -1191,30 +1158,66 @@ input {
 
   .pricing-header-image img,
   .pricing-header-image,
-  .pricing-header-image::after{
+  .pricing-header-image::after {
     width: min(33rem, 18vw);
     height: min(24rem, 18vw);
   }
-  
 
   #slideshow-display {
     width: min(80rem, 52vw);
     height: min(55rem, 36vw);
   }
 
-  .pricing-container{
+  .pricing-container {
     padding-top: 12rem;
     padding-bottom: 0;
   }
-  
-  .pricing-container:last-of-type{
+
+  .pricing-container:last-of-type {
     padding-bottom: 12rem;
   }
 
-  .pricing-btn-link{
+  .pricing-btn-link {
     font-size: 1.6rem;
   }
 
+  #tri-1 {
+    bottom: 0;
+    left: 0;
+    width: 14rem;
+    transform: translateY(70%);
+  }
+  #tri-2 {
+    top: 0;
+    right: 0;
+    width: 20rem;
+    transform: translateY(-28%);
+  }
+  #tri-3 {
+    bottom: 0;
+    left: 0;
+    width: 20rem;
+  }
+}
+
+@media screen and (min-width: 1360px) {
+  #tri-1 {
+    bottom: 0;
+    left: 0;
+    width: 16rem;
+    transform: translateY(-55%);
+  }
+  #tri-2 {
+    top: 0;
+    right: 0;
+    width: 22rem;
+    transform: translateY(-28%);
+  }
+  #tri-3 {
+    bottom: 0;
+    left: 0;
+    width: 22rem;
+  }
 }
 
 /*////    Extra Large Desktops    ////*/
@@ -1222,22 +1225,17 @@ input {
   html {
     font-size: 12px;
   }
-  /* h1,
-  h2 {
-    font-size: 3.8rem;
-  } */
 
   .container {
     padding: 8rem calc(50vw - 60rem);
   }
 
-
-  .pricing-container{
+  .pricing-container {
     padding-top: 12rem;
     padding-bottom: 0;
   }
-  
-  .pricing-container:last-of-type{
+
+  .pricing-container:last-of-type {
     padding-bottom: 12rem;
   }
 }

@@ -6,15 +6,16 @@ const modal = document.querySelector(".slideshow-modal");
 const modalX = document.querySelector("#modal-close");
 const galleryImages = document.querySelectorAll(".gallery-image");
 const galleryViewport = document.querySelector("#slideshow-display");
-const imgArr = []
+const imgArr = [];
 const nextBtn = document.querySelector("#next-btn");
 const prevBtn = document.querySelector("#prev-btn");
 const imgNumber = document.querySelector("#image-number");
-let curSource; curImage = 1;
+let curSource;
+curImage = 1;
 
 logoAnchor ? buildArrClickListener(logoAnchor, jumpToSection) : null;
 menuLink ? buildArrClickListener(menuLink, jumpToSection) : null;
-galleryImages ? buildArrClickListener(galleryImages, modalOpen): null;
+galleryImages ? buildArrClickListener(galleryImages, modalOpen) : null;
 
 function buildArrClickListener(arr, func) {
   for (i = 0; i < arr.length; i++) {
@@ -23,7 +24,7 @@ function buildArrClickListener(arr, func) {
 }
 
 function clearURL() {
-  if(window.location.pathname == '/pricing/') {
+  if (window.location.pathname == "/pricing/") {
     window.history.replaceState({}, document.title, "/pricing/");
   } else window.history.replaceState({}, document.title, "/");
 }
@@ -31,7 +32,7 @@ function clearURL() {
 function jumpToSection() {
   if (this.classList.contains("btn")) return menuClose();
   let sect = this.textContent.toLowerCase();
-  sect = sect.replace(/\s+/g, '-').toLowerCase();
+  sect = sect.replace(/\s+/g, "-").toLowerCase();
   const target = document.getElementById(`${sect}`);
   target.scrollIntoView(true);
   menuClose();
@@ -48,7 +49,7 @@ function modalOpen() {
   preventScroll();
 }
 
-function setSrc(el){
+function setSrc(el) {
   let source = el.getAttribute("src");
   for (i = 0; i < imgArr.length; i++) {
     if (imgArr[i] === source) {
@@ -59,7 +60,7 @@ function setSrc(el){
   }
 }
 
-function preventScroll(){
+function preventScroll() {
   const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
   const body = document.body;
   body.style.position = "fixed";
@@ -68,12 +69,7 @@ function preventScroll(){
   document.documentElement.style.scrollBehavior = "unset";
 }
 
-function modalClose() {
-  modal.classList.add("hidden");
-  allowScroll();
-}
-
-function allowScroll(){
+function allowScroll() {
   const body = document.body;
   const scrollY = body.style.top;
   body.style.position = "";
@@ -83,18 +79,23 @@ function allowScroll(){
   document.documentElement.style.scrollBehavior = "smooth";
 }
 
-function changeImage(direction){
+function modalClose() {
+  modal.classList.add("hidden");
+  allowScroll();
+}
+
+function changeImage(direction) {
   direction();
   let imgSrc = imgArr[curImage - 1];
   galleryViewport.style.backgroundImage = `url("${imgSrc}")`;
   imgNumber.textContent = `${curImage} / ${imgArr.length}`;
 }
 
-function nxt(){
+function nxt() {
   curImage == imgArr.length ? (curImage = 1) : curImage++;
 }
 
-function prev(){
+function prev() {
   curImage == 1 ? (curImage = imgArr.length) : curImage--;
 }
 
