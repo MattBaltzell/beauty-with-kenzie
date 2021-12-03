@@ -26,11 +26,11 @@
         <label for="hamburger-check" class="hamburger"></label>
         <div class="menu hidden-flex">
           <nav class="navigation">
-            <a href="javascript:void(0);" class="nav-item nav-click">Services</a>
-            <a href="javascript:void(0);" class="nav-item nav-click">Gallery</a>
-            <a href="javascript:void(0);" class="nav-item nav-click">About</a>
+            <a href="#services" class="nav-item nav-link scroll">Services</a>
+            <a href="#gallery" class="nav-item nav-link scroll">Gallery</a>
+            <a href="#about" class="nav-item nav-link scroll">About</a>
             <a href="/pricing/" class="nav-item">Pricing</a>
-            <a href="javascript:void(0);" class="nav-item nav-click">Contact</a>
+            <a href="#contact" class="nav-item nav-link scroll">Contact</a>
             <a href="https://www.schedulicity.com/scheduling/babdp6/services" target="_blank" class="nav-item btn">BOOK NOW!</a>
           </nav> 
         </div> 
@@ -83,34 +83,71 @@
     <section class="scroll section-gallery" id="gallery">
       <div class="container">
         <div class="section-toptext">
-        <h2 class="heading-2 underline">Gallery</h2>
+          <h2 class="heading-2 underline">Gallery</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut eget quam sapien ridiculus. Est luctus ornare ultricies quis.</p>
-          </div>
-          <div class="gallery">
-            <img src="/img/gallery-1.png" alt="" id="gal-img-1" class="gallery-image">
-            <img src="/img/gallery-2.png" alt="" id="gal-img-2"class="gallery-image">
-            <img src="/img/gallery-3.png" alt="" id="gal-img-3"class="gallery-image">
-            <img src="/img/gallery-4.png" alt="" id="gal-img-4"class="gallery-image">
-            <img src="/img/gallery-5.png" alt="" id="gal-img-5"class="gallery-image">
-            <img src="/img/gallery-6.png" alt="" id="gal-img-6" class="gallery-image">
-            <img src="/img/gallery-7.png" alt="" id="gal-img-7" class="gallery-image">
-            <img src="/img/gallery-8.png" alt="" id="gal-img-8"class="gallery-image">
-            <img src="/img/gallery-9.png" alt="" id="gal-img-9"class="gallery-image">
-            <img src="/img/gallery-10.png" alt="" id="gal-img-10"class="gallery-image">
-            <img src="/img/gallery-11.png" alt="" id="gal-img-11"class="gallery-image">
-            <img src="/img/gallery-12.png" alt="" id="gal-img-12"class="gallery-image">  
         </div>
-        <div class="slideshow-modal hidden">
-          <div id="modal-close" onclick="modalClose()">&#x2715</div>
-          <div class="slideshow-container">
-            <div id="slideshow-display"></div>
-            <div class="controls">
+        <!-- <div class="gallery">
+          <img src="/img/gallery-1-thumb.png" data-src="/img/gallery-1.png" alt="" id="gal-img-1" class="gallery__thumb">
+          <img src="/img/gallery-2-thumb.png" data-src="/img/gallery-2.png" alt="" id="gal-img-2"class="gallery__thumb">
+          <img src="/img/gallery-3-thumb.png" data-src="/img/gallery-3.png" alt="" id="gal-img-3"class="gallery__thumb">
+          <img src="/img/gallery-4-thumb.png" data-src="/img/gallery-4.png" alt="" id="gal-img-4"class="gallery__thumb">
+          <img src="/img/gallery-5-thumb.png" data-src="/img/gallery-5.png" alt="" id="gal-img-5"class="gallery__thumb">
+          <img src="/img/gallery-6-thumb.png" data-src="/img/gallery-6.png" alt="" id="gal-img-6" class="gallery__thumb">
+          <img src="/img/gallery-7-thumb.png" data-src="/img/gallery-7.png" alt="" id="gal-img-7" class="gallery__thumb">
+          <img src="/img/gallery-8-thumb.png" data-src="/img/gallery-8.png" alt="" id="gal-img-8"class="gallery__thumb">
+          <img src="/img/gallery-9-thumb.png" data-src="/img/gallery-9.png" alt="" id="gal-img-9"class="gallery__thumb">
+          <img src="/img/gallery-10-thumb.png" data-src="/img/gallery-10.png" alt="" id="gal-img-10"class="gallery__thumb">
+          <img src="/img/gallery-11-thumb.png" data-src="/img/gallery-11.png" alt="" id="gal-img-11"class="gallery__thumb">
+          <img src="/img/gallery-12-thumb.png" data-src="/img/gallery-12.png" alt="" id="gal-img-12"class="gallery__thumb">  
+        </div> -->
+        <!-- <div class="slideshow-modal hidden"> -->
+          <!-- <div id="modal-close" onclick="modalClose()">&#x2715</div> -->
+          <div class="slider">
+            
+              <div class="slide">
+                <img src="/img/gallery-1.png" alt="" data-img="1" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-2.png" alt="" data-img="2" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-3.png" alt="" data-img="3" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-4.png" alt="" data-img="4" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-5.png" alt="" data-img="5" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-6.png" alt="" data-img="6" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-7.png" alt="" data-img="7" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-8.png" alt="" data-img="8" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-9.png" alt="" data-img="9" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-10.png" alt="" data-img="10" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-11.png" alt="" data-img="11" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-12.png" alt="" data-img="12" class="gallery__image">
+              </div>
+            
+            <!-- <div class="controls">
               <button id="prev-btn" onclick="changeImage(prev)">Prev</button>
               <div id="image-number">Slideshow</div>
               <button id="next-btn" onclick="changeImage(nxt)">Next</button>
-            </div>
+            </div> -->
           </div>
-        </div>
+        <!-- </div> -->
       </div>
     </section>
     <section class="scroll section-about" id="about">
