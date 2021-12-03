@@ -59,7 +59,7 @@ h1,
 h2,
 h4 {
   color: var(--clr-primary-400);
-  font-size: 3.2rem;
+  font-size: 3rem;
   font-weight: 300;
   margin-bottom: 2rem;
   max-width: 35ch;
@@ -486,7 +486,7 @@ a.btn-cta:hover {
   background-size: 2.4rem 2.4rem;
 }
 
-.services_lashes .btn {
+.services_body-waxing .btn {
   margin-bottom: 0;
 }
 
@@ -657,6 +657,11 @@ a.btn-cta:hover {
   margin-right: auto;
 }
 
+.contact-info span p{
+  font-weight: 900;
+  margin-bottom:.5rem;
+}
+
 .contact-form {
   width: min(100%, 68.5rem);
 }
@@ -795,7 +800,7 @@ input {
     align-self: flex-start;
   }
 
-  .services_waxing .btn,
+  .services_face-waxing .btn,
   .services_facials .btn {
     margin-bottom: 0;
   }
