@@ -1070,10 +1070,10 @@ input {
 
 /*////    Tablets    ////*/
 @media screen and (min-width: 768px) {
-  .slideshow-display {
+  /* .slideshow-display { */
     /* width: min(60rem, 60vw);
     height: min(40rem, 40vw); */
-  }
+  /* } */
   .contact-container {
     gap: 6rem;
   }
@@ -1261,10 +1261,10 @@ input {
     height: min(24rem, 18vw);
   }
 
-  .slideshow-display {
+  /* .slideshow-display { */
     /* width: min(80rem, 52vw);
     height: min(55rem, 36vw); */
-  }
+  /* } */
 
   .pricing-container {
     padding-top: 12rem;
