@@ -6,13 +6,15 @@ const headerBtns = document.querySelector('.header-buttons')
 
 
 
+
 function clearURL() {
   window.history.replaceState({}, document.title, "/");
 }
 
-menu.addEventListener('click',scrollSection.bind(1))
-headerBtns.addEventListener('click',scrollSection.bind(1))
-logoAnchor.forEach(el=>el.addEventListener('click',scrollSection.bind(1)))
+menu.addEventListener('click',scrollSection.bind())
+headerBtns.addEventListener('click',scrollSection.bind())
+
+logoAnchor.forEach(el=>el.addEventListener('click',scrollSection.bind()))
 
 
 function scrollSection(e){
