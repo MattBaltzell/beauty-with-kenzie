@@ -1104,11 +1104,11 @@ input {
     padding: 8rem min(calc(50vw - 20rem), 8rem);
   }
 
-  .gallery {
+  /* .gallery {
     grid-template-areas:
       "img1 img2 img3 img4 img5 img6"
       "img7 img8 img9 img10 img11 img12";
-  }
+  } */
 
   .slider,.slide{
     height: 48rem;
