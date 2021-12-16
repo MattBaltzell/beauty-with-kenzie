@@ -1,111 +1,120 @@
 const menu = document.querySelector(".navigation");
-const menuLink = document.querySelectorAll(".nav-click");
+const menuLink = document.querySelectorAll(".nav-link");
 const logoAnchor = document.querySelectorAll(".logo-link");
 const checkBox = document.querySelector("#hamburger-check");
-const modal = document.querySelector(".slideshow-modal");
-const modalX = document.querySelector("#modal-close");
-const galleryImages = document.querySelectorAll(".gallery-image");
-const galleryViewport = document.querySelector("#slideshow-display");
-const imgArr = [];
-const nextBtn = document.querySelector("#next-btn");
-const prevBtn = document.querySelector("#prev-btn");
-const imgNumber = document.querySelector("#image-number");
-let curSource;
-curImage = 1;
+const headerBtns = document.querySelector('.header-buttons')
 
-logoAnchor ? buildArrClickListener(logoAnchor, jumpToSection) : null;
-menuLink ? buildArrClickListener(menuLink, jumpToSection) : null;
-galleryImages ? buildArrClickListener(galleryImages, modalOpen) : null;
 
-function buildArrClickListener(arr, func) {
-  for (i = 0; i < arr.length; i++) {
-    arr[i].addEventListener("click", func);
-  }
-}
+
 
 function clearURL() {
-  if (window.location.pathname == "/pricing/") {
-    window.history.replaceState({}, document.title, "/pricing/");
-  } else window.history.replaceState({}, document.title, "/");
+  window.history.replaceState({}, document.title, "/");
 }
 
-function jumpToSection() {
-  if (this.classList.contains("btn")) return menuClose();
-  let sect = this.textContent.toLowerCase();
-  sect = sect.replace(/\s+/g, "-").toLowerCase();
-  const target = document.getElementById(`${sect}`);
-  target.scrollIntoView(true);
-  menuClose();
-  clearURL();
+menu.addEventListener('click',scrollSection.bind())
+headerBtns.addEventListener('click',scrollSection.bind())
+
+logoAnchor.forEach(el=>el.addEventListener('click',scrollSection.bind()))
+
+
+function scrollSection(e){
+  if(!e.target.closest('a').classList.contains('scroll')) return;
+  e.preventDefault();
+  const id = e.target.closest('a').getAttribute('href');
+  document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  menuClose(e);
+  if(e.target.closest('a').classList.contains('home-logo')){
+    setTimeout(clearURL(),0)
+  } 
 }
 
-(function collectSlideImages() {
-  galleryImages.forEach((el) => imgArr.push(el.getAttribute("src")));
-})();
-
-function modalOpen() {
-  setSrc(this);
-  modal.classList.remove("hidden");
-  preventScroll();
-}
-
-function setSrc(el) {
-  let source = el.getAttribute("src");
-  for (i = 0; i < imgArr.length; i++) {
-    if (imgArr[i] === source) {
-      galleryViewport.style.backgroundImage = `url('${imgArr[i]}')`;
-      imgNumber.textContent = `${i + 1} / ${imgArr.length}`;
-      curImage = i + 1;
-    }
-  }
-}
-
-function preventScroll() {
-  const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
-  const body = document.body;
-  body.style.position = "fixed";
-  body.style.width = ``;
-  body.style.top = `-${scrollY}`;
-  document.documentElement.style.scrollBehavior = "unset";
-}
-
-function allowScroll() {
-  const body = document.body;
-  const scrollY = body.style.top;
-  body.style.position = "";
-  body.style.width = "";
-  body.style.top = "";
-  window.scrollTo(0, parseInt(scrollY || "0") * -1);
-  document.documentElement.style.scrollBehavior = "smooth";
-}
-
-function modalClose() {
-  modal.classList.add("hidden");
-  allowScroll();
-}
-
-function changeImage(direction) {
-  direction();
-  let imgSrc = imgArr[curImage - 1];
-  galleryViewport.style.backgroundImage = `url("${imgSrc}")`;
-  imgNumber.textContent = `${curImage} / ${imgArr.length}`;
-}
-
-function nxt() {
-  curImage == imgArr.length ? (curImage = 1) : curImage++;
-}
-
-function prev() {
-  curImage == 1 ? (curImage = imgArr.length) : curImage--;
-}
-
-function menuClose() {
+function menuClose(e) {
   checkBox.checked ? checkBox.click() : null;
 }
 
-window.addEventListener("scroll", () => {
-  document.documentElement.style.setProperty(
-    "--scroll-y",
-    `${window.scrollY}px`
-  );
-});
+////////////////////////////////
+// SLIDER
+
+const slider = function () {
+  const slides = document.querySelectorAll('.slide');
+  const btnLeft = document.querySelector('.slider__btn--left');
+  const btnRight = document.querySelector('.slider__btn--right');
+  const dotContainer = document.querySelector('.dots');
+
+  let curSlide = 0;
+  const maxSlide = slides.length;
+
+  // Functions
+  const createDots = function () {
+    slides.forEach(function (_, i) {
+      dotContainer.insertAdjacentHTML(
+        'beforeend',
+        `<button class="dots__dot" data-slide="${i}"></button>`
+      );
+    });
+  };
+
+  const activateDot = function (slide) {
+    document
+      .querySelectorAll('.dots__dot')
+      .forEach(dot => dot.classList.remove('dots__dot--active'));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add('dots__dot--active');
+  };
+
+  const goToSlide = function (slide) {
+    slides.forEach(
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    );
+  };
+
+  // Next slide
+  const nextSlide = function () {
+    if (curSlide === maxSlide - 1) {
+      curSlide = 0;
+    } else {
+      curSlide++;
+    }
+
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  const prevSlide = function () {
+    if (curSlide === 0) {
+      curSlide = maxSlide - 1;
+    } else {
+      curSlide--;
+    }
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  const init = function () {
+    goToSlide(0);
+    createDots();
+
+    activateDot(0);
+  };
+  init();
+
+  // Event handlers
+  btnRight.addEventListener('click', nextSlide);
+  btnLeft.addEventListener('click', prevSlide);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') prevSlide();
+    e.key === 'ArrowRight' && nextSlide();
+  });
+
+  dotContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('dots__dot')) {
+      const { slide } = e.target.dataset;
+      goToSlide(slide);
+      activateDot(slide);
+    }
+  });
+};
+slider();

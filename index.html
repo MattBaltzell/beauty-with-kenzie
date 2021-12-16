@@ -16,21 +16,21 @@
   <title>Beauty with Kenzie - Full-body Waxes, Customized Facials, and Lash Extensions</title>
 </head>
 <body>
-  <header class="header scroll-0" id="logo">
+  <header class="header" id="top">
     <div class="container nav-container">
     <div class="navbar">
         <div class="logo">
-          <a href="javascript:void(0);" class="logo-link"><img src="/img/bwk-logo.svg" width="208" alt="Beauty With Kenzie">logo</a>
+          <a href="#top" class="logo-link home-logo scroll"><img src="/img/bwk-logo.svg" width="208" alt="Beauty With Kenzie">logo</a>
         </div>
         <input type="checkbox" name="checkbox" id="hamburger-check" >
         <label for="hamburger-check" class="hamburger"></label>
         <div class="menu hidden-flex">
           <nav class="navigation">
-            <a href="javascript:void(0);" class="nav-item nav-click">Services</a>
-            <a href="javascript:void(0);" class="nav-item nav-click">Gallery</a>
-            <a href="javascript:void(0);" class="nav-item nav-click">About</a>
+            <a href="#services" class="nav-item nav-link scroll">Services</a>
+            <a href="#gallery" class="nav-item nav-link scroll">Gallery</a>
+            <a href="#about" class="nav-item nav-link scroll">About</a>
             <a href="/pricing/" class="nav-item">Pricing</a>
-            <a href="javascript:void(0);" class="nav-item nav-click">Contact</a>
+            <a href="#contact" class="nav-item nav-link scroll">Contact</a>
             <a href="https://www.schedulicity.com/scheduling/babdp6/services" target="_blank" class="nav-item btn">BOOK NOW!</a>
           </nav> 
         </div> 
@@ -42,7 +42,7 @@
         <h1 class="heading-1 clr-primary-400">Come for the services. Leave with the confidence to take on the day.</h1>
         <p>You are amazing, and I'm here to help you see that. At Beauty with Kenzie, I provide custom facials and waxing services that will give you the confidence to take on whatever stands in front of you. Are you ready to take on life and look great doing it? Let's get started!</p>
         <div class="header-buttons">
-          <a href="#services" class="btn ">Explore Services</a>
+          <a href="#services" class="btn scroll">Explore Services</a>
           <a href="/pricing/" class="btn-link">See Pricing</a>
         </div>
       </div>
@@ -60,19 +60,19 @@
       </div>
         <div class="services">
           <div class="services_facials">
-            <img src="/img/facials.png" alt="">
+            <img src="/img/bwk-facial.jpg" alt="Woman getting a facial">
             <h3 class="heading-3">Facials</h3>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis asperiores corrupti perspiciatis suscipit aliquid veritatis iure iste.</p>
             <a href="/pricing/#facials" class="btn">See Pricing</a>
           </div>
           <div class="services_face-waxing">
-            <img src="/img/lashes.png" alt="">
+            <img src="/img/lashes.jpg" alt="">
             <h3 class="heading-3">Eyebrows & Face Waxing</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae expedita accusantium similique odit dolorum, eum neque officiis dicta.</p>
             <a href="/pricing/#lashes" class="btn">See Pricing</a>
           </div>
           <div class="services_body-waxing">
-            <img src="/img/waxing.png" alt="">
+            <img src="/img/waxing.jpg" alt="Leg waxing">
             <h3 class="heading-3">Body Waxing</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet ipsum et dignissimos! Eum quisquam itaque ducimus dolorem.</p>
             <a href="/pricing/#waxing" class="btn">See Pricing</a>
@@ -83,34 +83,62 @@
     <section class="scroll section-gallery" id="gallery">
       <div class="container">
         <div class="section-toptext">
-        <h2 class="heading-2 underline">Gallery</h2>
+          <h2 class="heading-2 underline">Gallery</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut eget quam sapien ridiculus. Est luctus ornare ultricies quis.</p>
-          </div>
-          <div class="gallery">
-            <img src="/img/gallery-1.png" alt="" id="gal-img-1" class="gallery-image">
-            <img src="/img/gallery-2.png" alt="" id="gal-img-2"class="gallery-image">
-            <img src="/img/gallery-3.png" alt="" id="gal-img-3"class="gallery-image">
-            <img src="/img/gallery-4.png" alt="" id="gal-img-4"class="gallery-image">
-            <img src="/img/gallery-5.png" alt="" id="gal-img-5"class="gallery-image">
-            <img src="/img/gallery-6.png" alt="" id="gal-img-6" class="gallery-image">
-            <img src="/img/gallery-7.png" alt="" id="gal-img-7" class="gallery-image">
-            <img src="/img/gallery-8.png" alt="" id="gal-img-8"class="gallery-image">
-            <img src="/img/gallery-9.png" alt="" id="gal-img-9"class="gallery-image">
-            <img src="/img/gallery-10.png" alt="" id="gal-img-10"class="gallery-image">
-            <img src="/img/gallery-11.png" alt="" id="gal-img-11"class="gallery-image">
-            <img src="/img/gallery-12.png" alt="" id="gal-img-12"class="gallery-image">  
         </div>
-        <div class="slideshow-modal hidden">
-          <div id="modal-close" onclick="modalClose()">&#x2715</div>
-          <div class="slideshow-container">
-            <div id="slideshow-display"></div>
-            <div class="controls">
+        
+          <div class="slider">
+            
+              <div class="slide">
+                <img src="/img/bwk-door.jpg" alt="" data-img="1" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/bwk-facial.jpg" alt="" data-img="2" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/bwk-products.jpg" alt="" data-img="3" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/bwk-shelf.jpg" alt="" data-img="4" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/belle-beau.jpg" alt="" data-img="5" class="gallery__image">
+              </div>
+              <!-- <div class="slide">
+                <img src="/img/gallery-6.png" alt="" data-img="6" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-7.png" alt="" data-img="7" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-8.png" alt="" data-img="8" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-9.png" alt="" data-img="9" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-10.png" alt="" data-img="10" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-11.png" alt="" data-img="11" class="gallery__image">
+              </div>
+              <div class="slide">
+                <img src="/img/gallery-12.png" alt="" data-img="12" class="gallery__image">
+              </div> -->
+
+
+              <button class="slider__btn slider__btn--left"><div class="slider__arrow slider__arrow--left">&#8249;</div></button>
+              <button class="slider__btn slider__btn--right"><div class="slider__arrow slider__arrow--right">&#8250;</div></button>
+              <div class="dots"></div>
+      
+            
+            <!-- <div class="controls">
               <button id="prev-btn" onclick="changeImage(prev)">Prev</button>
               <div id="image-number">Slideshow</div>
               <button id="next-btn" onclick="changeImage(nxt)">Next</button>
-            </div>
+            </div> -->
           </div>
-        </div>
+        <!-- </div> -->
       </div>
     </section>
     <section class="scroll section-about" id="about">
@@ -158,7 +186,7 @@
   </main>
   <footer class= "footer">
     <div class="logo">
-      <a href="javascript:void(0);" class="logo-link"><img src="/img/bwk-logo.svg" width="208" alt="Beauty With Kenzie">logo</a>
+      <a href="#top" class="logo-link home-logo scroll"><img src="/img/bwk-logo.svg" width="208" alt="Beauty With Kenzie">logo</a>
     </div>
     <img src="/img/triangles-3.svg" class="triangles" id="tri-3" alt="decorative triangles">
   </footer>
