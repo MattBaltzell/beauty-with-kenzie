@@ -1,121 +1,120 @@
 const menu = document.querySelector(".navigation");
-const menuLink = document.querySelectorAll(".nav-item");
+const menuLink = document.querySelectorAll(".nav-link");
 const logoAnchor = document.querySelectorAll(".logo-link");
 const checkBox = document.querySelector("#hamburger-check");
-const modal = document.querySelector(".slideshow-modal");
-const modalX = document.querySelector("#modal-close");
-const galleryImages = document.querySelectorAll(".gallery-image");
-const galleryViewport = document.querySelector("#slideshow-display");
-const imgArr = [];
-let curSource;
-let curNumber;
-const nextBtn = document.querySelector("#next-btn");
-const prevBtn = document.querySelector("#prev-btn");
-const imgNumber = document.querySelector("#image-number");
+const headerBtns = document.querySelector('.header-buttons')
 
-buildArrClickListener(menuLink, jumpToSection);
-buildArrClickListener(logoAnchor, jumpToSection);
-buildElClickListener(modalX, modalClose);
-buildArrClickListener(galleryImages, modalOpen);
-buildElClickListener(nextBtn, nextImage);
-buildElClickListener(prevBtn, prevImage);
 
-function buildElClickListener(el, func) {
-  
-el.addEventListener("click", func);
- 
+
+
+function clearURL() {
+  window.history.replaceState({}, document.title, "/");
 }
 
-function buildArrClickListener(arr, func) {
-  for (i = 0; i < arr.length; i++) {
-    arr[i].addEventListener("click", func);
-  }
+menu.addEventListener('click',scrollSection.bind())
+headerBtns.addEventListener('click',scrollSection.bind())
+
+logoAnchor.forEach(el=>el.addEventListener('click',scrollSection.bind()))
+
+
+function scrollSection(e){
+  if(!e.target.closest('a').classList.contains('scroll')) return;
+  e.preventDefault();
+  const id = e.target.closest('a').getAttribute('href');
+  document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  menuClose(e);
+  if(e.target.closest('a').classList.contains('home-logo')){
+    setTimeout(clearURL(),0)
+  } 
 }
 
-function jumpToSection() {
-  if (this.classList.contains("btn")) return menuClose();
-  const sect = this.textContent.toLowerCase();
-  const target = document.getElementById(`${sect}-anchor`);
-  target.scrollIntoView(true);
-  menuClose();
-}
-
-(function collectSlideImages() {
-  for (i = 0; i < galleryImages.length; i++) {
-    imgArr.push(galleryImages[i].getAttribute("src"));
-  }
-})();
-
-function modalOpen() {
-  galleryViewport.textContent = "";
-  let source = this.getAttribute("src");
-
-  for (i = 0; i < imgArr.length; i++) {
-    if (imgArr[i] === source) {
-      galleryViewport.style.backgroundImage = `url('${imgArr[i]}')`;
-      imgNumber.textContent = `${i + 1} / ${imgArr.length}`;
-    }
-  }
-
-  modal.classList.remove("hidden");
-  const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
-  const body = document.body;
-  body.style.position = "fixed";
-  body.style.width = ``;
-  body.style.top = `-${scrollY}`;
-  document.documentElement.style.scrollBehavior = "unset";
-}
-
-function nextImage() {
-  curSource = galleryViewport.style.backgroundImage;
-
-  if (curSource === `url("${imgArr[imgArr.length - 1]}")`) {
-    galleryViewport.style.backgroundImage = `url("${imgArr[0]}")`;
-    imgNumber.textContent = `${1} / ${imgArr.length}`;
-    return;
-  }
-
-  for (i = 0; i < imgArr.length; i++) {
-    if (`url("${imgArr[i]}")` === curSource) {
-      galleryViewport.style.backgroundImage = `url("${imgArr[i + 1]}")`;
-      imgNumber.textContent = `${i + 2} / ${imgArr.length}`;
-    }
-  }
-}
-
-function prevImage() {
-  curSource = galleryViewport.style.backgroundImage;
-  if (curSource === `url("${imgArr[0]}")`) {
-    galleryViewport.style.backgroundImage = `url("${imgArr[11]}")`;
-    imgNumber.textContent = `${imgArr.length} / ${imgArr.length}`;
-    return;
-  }
-  for (i = imgArr.length; i > 0; i--) {
-    if (`url("${imgArr[i]}")` === curSource) {
-      galleryViewport.style.backgroundImage = `url("${imgArr[i - 1]}")`;
-      imgNumber.textContent = `${i} / ${imgArr.length}`;
-    }
-  }
-}
-
-function modalClose() {
-  const body = document.body;
-  const scrollY = body.style.top;
-  body.style.position = "";
-  body.style.width = "";
-  body.style.top = "";
-  window.scrollTo(0, parseInt(scrollY || "0") * -1);
-  modal.classList.add("hidden");
-  document.documentElement.style.scrollBehavior = "smooth";
-}
-
-function menuClose() {
+function menuClose(e) {
   checkBox.checked ? checkBox.click() : null;
 }
 
-window.addEventListener("scroll", () => {
-  document.documentElement.style.setProperty(
-    "--scroll-y",
-    `${window.scrollY}px`
-  );
-});
+////////////////////////////////
+// SLIDER
+
+const slider = function () {
+  const slides = document.querySelectorAll('.slide');
+  const btnLeft = document.querySelector('.slider__btn--left');
+  const btnRight = document.querySelector('.slider__btn--right');
+  const dotContainer = document.querySelector('.dots');
+
+  let curSlide = 0;
+  const maxSlide = slides.length;
+
+  // Functions
+  const createDots = function () {
+    slides.forEach(function (_, i) {
+      dotContainer.insertAdjacentHTML(
+        'beforeend',
+        `<button class="dots__dot" data-slide="${i}"></button>`
+      );
+    });
+  };
+
+  const activateDot = function (slide) {
+    document
+      .querySelectorAll('.dots__dot')
+      .forEach(dot => dot.classList.remove('dots__dot--active'));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add('dots__dot--active');
+  };
+
+  const goToSlide = function (slide) {
+    slides.forEach(
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    );
+  };
+
+  // Next slide
+  const nextSlide = function () {
+    if (curSlide === maxSlide - 1) {
+      curSlide = 0;
+    } else {
+      curSlide++;
+    }
+
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  const prevSlide = function () {
+    if (curSlide === 0) {
+      curSlide = maxSlide - 1;
+    } else {
+      curSlide--;
+    }
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  const init = function () {
+    goToSlide(0);
+    createDots();
+
+    activateDot(0);
+  };
+  init();
+
+  // Event handlers
+  btnRight.addEventListener('click', nextSlide);
+  btnLeft.addEventListener('click', prevSlide);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') prevSlide();
+    e.key === 'ArrowRight' && nextSlide();
+  });
+
+  dotContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('dots__dot')) {
+      const { slide } = e.target.dataset;
+      goToSlide(slide);
+      activateDot(slide);
+    }
+  });
+};
+slider();
