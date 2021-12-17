@@ -94,6 +94,18 @@ p {
 /*/////////////////////////////////////////
 -------------   COMPONENTS   -------------
 /////////////////////////////////////////*/
+.coming-soon_container{
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+  background: var(--clr-secondary-100);
+}
+
+
+
 .container {
   margin: 0 auto;
   padding: 3.6rem 1.6rem;
