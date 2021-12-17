@@ -100,8 +100,14 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 95vh;
-  background: var(--clr-secondary-100);
+  height: 100vh;
+  width: 100%;
+  background-color: var(--clr-secondary-100);
+  gap: 20px;
+}
+
+.coming-soon_container img{
+  max-width: 50%; 
 }
 
 
