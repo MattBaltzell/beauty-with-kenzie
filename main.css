@@ -91,9 +91,7 @@ p {
   max-width: 65ch;
 }
 
-.full-width-p {
-  max-width: 100%;
-}
+
 
 /*/////////////////////////////////////////
 -------------   COMPONENTS   -------------
@@ -845,6 +843,11 @@ input {
 
   .section-toptext p {
     max-width: 50ch;
+  }
+
+
+  .section-toptext p.full-width-p {
+    max-width: 100%;
   }
 
   .container.nav-container {
