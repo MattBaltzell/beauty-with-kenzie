@@ -848,6 +848,7 @@ input {
 
   .section-toptext p.full-width-p {
     max-width: 100%;
+    text-align: left;
   }
 
   .container.nav-container {
