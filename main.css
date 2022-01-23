@@ -828,12 +828,16 @@ input {
     margin-bottom: 0;
   }
 
-  .section-toptext {
+  .section-toptext{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+  }
+
+  .section-toptext--pricing{
+    align-items: stretch;
   }
 
   .section-toptext h2::after {
