@@ -91,6 +91,8 @@ p {
   max-width: 65ch;
 }
 
+
+
 /*/////////////////////////////////////////
 -------------   COMPONENTS   -------------
 /////////////////////////////////////////*/
@@ -854,12 +856,16 @@ input {
     margin-bottom: 0;
   }
 
-  .section-toptext {
+  .section-toptext{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+  }
+
+  .section-toptext--pricing{
+    align-items: stretch;
   }
 
   .section-toptext h2::after {
@@ -869,6 +875,12 @@ input {
 
   .section-toptext p {
     max-width: 50ch;
+  }
+
+
+  .section-toptext p.full-width-p {
+    max-width: 100%;
+    text-align: left;
   }
 
   .container.nav-container {
