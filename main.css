@@ -113,16 +113,15 @@ p {
 }
 
 @media screen and (min-width: 600px) {
+  
 .coming-soon_container img{
   max-width: 50%; 
 }
+  
 }
 .cs-logo{
   max-width: 400px !important;
 }
-
-
-
 
 .container {
   margin: 0 auto;
@@ -376,6 +375,7 @@ a.btn-cta:hover {
   position: relative;
   z-index: 100;
 }
+
 .navbar {
   position: fixed;
   background: rgba(255, 255, 255, 0.9);
@@ -395,6 +395,7 @@ a.btn-cta:hover {
   width: 17rem;
   transition: transform 0.1s;
 }
+
 .logo img:hover {
   transform: scale(1.02);
 }
@@ -536,6 +537,7 @@ a.btn-cta:hover {
     "img10 img11 img12";
   gap: 0.6rem;
 }
+
 .gallery__thumb {
   margin: 0;
   border-radius: 0.3rem;
@@ -566,13 +568,10 @@ a.btn-cta:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* THIS creates the animation! */
   transition: transform 1s;
 }
 
 .slide > img {
-  /* Only for images that have different size than slide */
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -594,6 +593,7 @@ a.btn-cta:hover {
   cursor: pointer;
   transition: all .3s;
 }
+
 @media (hover: hover) {
   .slider__btn:hover{
     background: var(--clr-primary-400);
@@ -635,10 +635,9 @@ a.btn-cta:hover {
   cursor: pointer;
   transition: all 0.5s;
 
-  /* Only necessary when overlying images */
+  /* Only necessary when overlaying images */
   box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7);
 }
-
 
 .dots__dot--active {
   background-color:  var(--clr-primary-400);
@@ -939,13 +938,6 @@ input {
     padding: 0 0.5rem;
   }
 
-  /* .gallery {
-    grid-template-areas:
-      "img1 img2 img3 img4"
-      "img5 img6 img7 img8"
-      "img9 img10 img11 img12";
-  } */
-
   .slider,.slide{
     height: 34rem;
   }
@@ -1047,10 +1039,6 @@ input {
 
 /*////    Tablets    ////*/
 @media screen and (min-width: 768px) {
-  /* .slideshow-display { */
-    /* width: min(60rem, 60vw);
-    height: min(40rem, 40vw); */
-  /* } */
 
   .slider__btn--left{
     left: 3%;
@@ -1070,6 +1058,7 @@ input {
 
 /*////    Desktops    ////*/
 @media screen and (min-width: 992px) {
+  
   .logo,
   .logo img {
     width: 20.8rem;
@@ -1144,12 +1133,6 @@ input {
     padding: 8rem min(calc(50vw - 20rem), 8rem);
   }
 
-  /* .gallery {
-    grid-template-areas:
-      "img1 img2 img3 img4 img5 img6"
-      "img7 img8 img9 img10 img11 img12";
-  } */
-
   .slider,.slide{
     height: 48rem;
   }
@@ -1160,9 +1143,11 @@ input {
     width: min(48rem, 24vw);
     height: min(37rem, 18vw);
   }
+  
   .contact-container {
     gap: 10rem;
   }
+  
   .nav-item.btn {
     background-color: var(--clr-primary-400);
     color: var(--clr-neutral-100);
@@ -1194,6 +1179,7 @@ input {
   .odd-card {
     transform: translateX(calc(50% + 0.7rem));
   }
+  
   .row {
     justify-content: center;
     gap: 4rem;
@@ -1204,27 +1190,32 @@ input {
     position: absolute;
     margin: 0;
   }
+  
   #tri-1 {
     bottom: 0%;
     left: 0;
     width: 12rem;
     transform: translateY(75%);
   }
+  
   #tri-2 {
     top: 0%;
     right: 0;
     width: 14rem;
     transform: translateY(-28%);
   }
+  
   #tri-3 {
     bottom: 0;
     left: 0;
     width: 16rem;
   }
+  
 }
 
 /*////    Large Desktops    ////*/
 @media screen and (min-width: 1200px) {
+  
   h1,
   h2 {
     font-size: 3.8rem;
@@ -1251,11 +1242,6 @@ input {
     height: min(24rem, 18vw);
   }
 
-  /* .slideshow-display { */
-    /* width: min(80rem, 52vw);
-    height: min(55rem, 36vw); */
-  /* } */
-
   .pricing-container {
     padding-top: 12rem;
     padding-bottom: 0;
@@ -1275,41 +1261,49 @@ input {
     width: 14rem;
     transform: translateY(70%);
   }
+  
   #tri-2 {
     top: 0;
     right: 0;
     width: 20rem;
     transform: translateY(-28%);
   }
+  
   #tri-3 {
     bottom: 0;
     left: 0;
     width: 20rem;
   }
+  
 }
 
 @media screen and (min-width: 1360px) {
+  
   #tri-1 {
     bottom: 0;
     left: 0;
     width: 16rem;
     transform: translateY(-55%);
   }
+  
   #tri-2 {
     top: 0;
     right: 0;
     width: 22rem;
     transform: translateY(-28%);
   }
+  
   #tri-3 {
     bottom: 0;
     left: 0;
     width: 22rem;
   }
+  
 }
 
 /*////    Extra Large Desktops    ////*/
 @media screen and (min-width: 1921px) {
+  
   html {
     font-size: 12px;
   }
@@ -1326,6 +1320,7 @@ input {
   .pricing-container:last-of-type {
     padding-bottom: 12rem;
   }
+  
 }
 
 /*////    Super Small Phones    ////*/
